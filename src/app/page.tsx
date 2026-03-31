@@ -10,29 +10,35 @@ import Vinyl from "@/components/Vinyl";
 import Photography from "@/components/Photography";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
+import MusicPlayer from "@/components/MusicPlayer";
 
 export default function Home() {
   return (
-    <SmoothScroll>
-      <Nav />
-      <main>
-        <Hero />
-        <SectionDivider label="Work" />
-        <Projects />
-        <SectionDivider label="Experience" />
-        <Experience />
-        <SectionDivider label="Recognition" />
-        <Achievements />
-        <SectionDivider label="About" />
-        <About />
-        <SectionDivider label="Education" />
-        <EducationSection />
-        <SectionDivider label="On Rotation" />
-        <Vinyl />
-        <SectionDivider label="Photography" />
-        <Photography />
-      </main>
-      <Footer />
-    </SmoothScroll>
+    <>
+      <SmoothScroll>
+        <Nav />
+        <main>
+          <Hero />
+          <SectionDivider label="Work" />
+          <Projects />
+          <SectionDivider label="Experience" />
+          <Experience />
+          <SectionDivider label="Recognition" />
+          <Achievements />
+          <SectionDivider label="About" />
+          <About />
+          <SectionDivider label="Education" />
+          <EducationSection />
+          <SectionDivider label="On Rotation" />
+          <Vinyl />
+          <SectionDivider label="Photography" />
+          <Photography />
+        </main>
+        <Footer />
+      </SmoothScroll>
+      <div className="sticky bottom-0 z-50">
+        <MusicPlayer />
+      </div>
+    </>
   );
 }
