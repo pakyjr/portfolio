@@ -1,0 +1,10 @@
+{
+  "Hero": {
+    "name": [
+      { "full": "Pasquale", "short": "P", "italic": false },
+      { "full": "Junior", "short": "J", "italic": false },
+      { "full": "Montò", "short": "M", "italic": true }
+    ],
+    "description": "Finishing my CS degree at Federico II, after a year of backend work at IdeaSolutions and the Apple Developer Academy. Right now I'm the sole engineer and co-founder at Clinequal — a startup where I translate domain theory from my PhD co-founders into software that flags bias in clinical trials.\nBuilding alone has forced me to make every architectural decision myself: what to build, what to cut, how to keep things simple enough to actually ship. I like that pressure, but I also want to work alongside people who are better than me.\nOutside of code, I'm a photographer, a Tango dancer, and a Jazz/Prog-Rock lover. Based in Naples, Italy."
+  }
+}
