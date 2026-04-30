@@ -2,13 +2,15 @@
 
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "@/lib/animations";
-import { education } from "@/lib/data";
+import messages from "@/messages.json";
+
+const EDUCATION = messages.Education;
 
 export default function EducationSection() {
   return (
     <section id="education" className="px-6 md:px-12 py-32 md:py-44">
       <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12">
-        (education)
+        {EDUCATION.label}
       </p>
       <motion.div
         variants={staggerContainer}
@@ -17,7 +19,7 @@ export default function EducationSection() {
         viewport={{ once: true, margin: "-100px" }}
         className="space-y-10"
       >
-        {education.map((edu) => (
+        {EDUCATION.items.map((edu) => (
           <motion.div
             key={edu.institution}
             variants={fadeUp}

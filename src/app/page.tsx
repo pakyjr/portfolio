@@ -30,7 +30,7 @@ export default function Home() {
           <Achievements />
           <SectionDivider label={messages.About.title} />
           <About />
-          <SectionDivider label="Education" />
+          <SectionDivider label={messages.Education.title} />
           <EducationSection />
           <SectionDivider label="On Rotation" />
           <Vinyl />
