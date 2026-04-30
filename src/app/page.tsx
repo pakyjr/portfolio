@@ -11,6 +11,8 @@ import Photography from "@/components/Photography";
 import Footer from "@/components/Footer";
 import SectionDivider from "@/components/SectionDivider";
 import MusicPlayer from "@/components/MusicPlayer";
+import { shuffle } from "@/helpers/shuffle";
+import { tracks } from "@/lib/tracks";
 
 export default function Home() {
   return (
@@ -37,7 +39,7 @@ export default function Home() {
         <Footer />
       </SmoothScroll>
       <div className="sticky bottom-0 z-50">
-        <MusicPlayer />
+        <MusicPlayer tracks={shuffle(tracks)} />
       </div>
     </>
   );
