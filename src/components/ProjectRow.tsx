@@ -4,7 +4,15 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { fadeUp } from "@/lib/animations";
-import type { Project } from "@/lib/data";
+
+interface Project {
+  name: string;
+  description: string;
+  tech: string[];
+  image: string;
+  link?: string;
+  github?: string;
+}
 
 export default function ProjectRow({
   project,
