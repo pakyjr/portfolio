@@ -123,5 +123,68 @@
         "description": "Clinequal featured for innovation in healthcare AI and clinical trial analysis."
       }
     ]
+  },
+  "About": {
+    "title": "About",
+    "label": "(about)",
+    "skills": [
+      {
+        "label": "Languages",
+        "items": ["TypeScript", "Swift", "Go", "Python", "C/C++", "Java", "SQL"]
+      },
+      {
+        "label": "Technologies",
+        "items": [
+          "Node.js",
+          "FastAPI",
+          "Next.js",
+          "PostgreSQL",
+          "DynamoDB",
+          "Redis",
+          "Docker",
+          "AWS"
+        ]
+      },
+      {
+        "label": "Architecture",
+        "items": [
+          "Microservices",
+          "REST APIs",
+          "Distributed Systems",
+          "Clean Architecture",
+          "Agile"
+        ]
+      }
+    ],
+    "languages": {
+      "label": "Spoken Languages",
+      "items": [
+        {
+          "language": "English",
+          "level": "Fluent",
+          "flag": "/images/flags/gb.png"
+        },
+        {
+          "language": "Portuguese",
+          "level": "Fluent",
+          "flag": "/images/flags/br.png"
+        },
+        {
+          "language": "Italian",
+          "level": "Fluent",
+          "flag": "/images/flags/it.png"
+        },
+        {
+          "language": "French",
+          "level": "Conversational",
+          "flag": "/images/flags/fr.png"
+        },
+        {
+          "language": "Spanish",
+          "level": "Conversational",
+          "flag": "/images/flags/es.png"
+        }
+      ]
+    }
   }
 }

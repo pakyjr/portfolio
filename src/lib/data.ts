@@ -50,43 +50,6 @@ export const education: Education[] = [
   },
 ];
 
-export const skills = {
-  languages: [
-    "TypeScript",
-    "Swift",
-    "Go",
-    "Python",
-    "C/C++",
-    "Java",
-    "SQL",
-  ],
-  technologies: [
-    "Node.js",
-    "FastAPI",
-    "Next.js",
-    "PostgreSQL",
-    "DynamoDB",
-    "Redis",
-    "Docker",
-    "AWS",
-  ],
-  concepts: [
-    "Microservices",
-    "REST APIs",
-    "Distributed Systems",
-    "Clean Architecture",
-    "Agile",
-  ],
-};
-
-export const spokenLanguages = [
-  { language: "English", level: "Fluent", flag: "/images/flags/gb.png" },
-  { language: "Portuguese", level: "Fluent", flag: "/images/flags/br.png" },
-  { language: "Italian", level: "Fluent", flag: "/images/flags/it.png" },
-  { language: "French", level: "Conversational", flag: "/images/flags/fr.png" },
-  { language: "Spanish", level: "Conversational", flag: "/images/flags/es.png" },
-];
-
 export const socials = {
   email: "pjr.monto@gmail.com",
   github: "https://github.com/pakyjr",
