@@ -1,19 +1,10 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
-import { tracks } from "@/lib/tracks";
+import React, { useState, useRef, useEffect, useCallback } from "react";
+import { Track } from "@/lib/tracks";
 
-function shuffle<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
-export default function MusicPlayer() {
-  const [queue] = useState(() => shuffle(tracks));
+export default function MusicPlayer({ tracks }: { tracks: Track[] }) {
+  const [queue] = useState(tracks);
   const [index, setIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
