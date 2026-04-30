@@ -27,10 +27,3 @@ export interface Education {
   period: string;
   detail?: string;
 }
-
-export const socials = {
-  email: "pjr.monto@gmail.com",
-  github: "https://github.com/pakyjr",
-  linkedin: "https://linkedin.com/in/pasqjr",
-  instagram: "https://www.instagram.com/pakyjr/",
-};

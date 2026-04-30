@@ -1,4 +1,6 @@
-import { socials } from "@/lib/data";
+import messages from "@/messages.json";
+
+const FOOTER = messages.Footer;
 
 export default function Footer() {
   return (
@@ -10,38 +12,25 @@ export default function Footer() {
               (get in touch)
             </p>
             <a
-              href={`mailto:${socials.email}`}
+              href={`mailto:${FOOTER.email}`}
               className="font-mono text-lg md:text-xl text-cream hover:text-accent transition-colors"
             >
-              {socials.email}
+              {FOOTER.email}
             </a>
           </div>
 
           <div className="flex gap-8">
-            <a
-              href={socials.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-sm text-cream-dim hover:text-cream transition-colors tracking-wide uppercase"
-            >
-              GitHub
-            </a>
-            <a
-              href={socials.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-sm text-cream-dim hover:text-cream transition-colors tracking-wide uppercase"
-            >
-              LinkedIn
-            </a>
-            <a
-              href={socials.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-sm text-cream-dim hover:text-cream transition-colors tracking-wide uppercase"
-            >
-              Instagram
-            </a>
+            {FOOTER.items.map((item) => (
+              <a
+                key={item.label}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-sm text-cream-dim hover:text-cream transition-colors tracking-wide uppercase"
+              >
+                {item.label}
+              </a>
+            ))}
           </div>
         </div>
 

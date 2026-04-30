@@ -416,5 +416,17 @@
       { "src": "uoma-100.jpg", "orientation": "portrait" },
       { "src": "00.jpg", "orientation": "portrait" }
     ]
+  },
+  "Footer": {
+    "label": "(get in touch)",
+    "email": "pjr.monto@gmail.com",
+    "items": [
+      {
+        "label": "GitHub",
+        "link": "https://github.com/pakyjr"
+      },
+      { "label": "LinkedIn", "link": "https://linkedin.com/in/pasqjr" },
+      { "label": "Instagram", "link": "https://www.instagram.com/pakyjr/" }
+    ]
   }
 }
