@@ -4,9 +4,23 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { fadeUp } from "@/lib/animations";
-import type { Project } from "@/lib/data";
 
-export default function ProjectRow({ project }: { project: Project }) {
+interface Project {
+  name: string;
+  description: string;
+  tech: string[];
+  image: string;
+  link?: string;
+  github?: string;
+}
+
+export default function ProjectRow({
+  project,
+  className,
+}: {
+  project: Project;
+  className?: string;
+}) {
   const rowRef = useRef<HTMLDivElement>(null);
   const [mouseY, setMouseY] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -26,17 +40,15 @@ export default function ProjectRow({ project }: { project: Project }) {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative border-b border-cream-dim/20 py-6 md:py-8 cursor-pointer"
+      className={[
+        "group relative border-b border-cream-dim/20 py-6 md:py-8 cursor-pointer",
+        className,
+      ].join(" ")}
     >
       <div className="relative z-10 flex items-baseline justify-between gap-4">
-        <div className="flex items-baseline gap-4 md:gap-8 min-w-0">
-          <span className="font-serif text-sm md:text-base text-cream-dim shrink-0">
-            {project.number}
-          </span>
-          <h3 className="font-serif text-2xl md:text-5xl lg:text-6xl text-cream tracking-tight group-hover:text-accent transition-colors duration-300">
-            {project.name}
-          </h3>
-        </div>
+        <h3 className="font-serif text-2xl md:text-5xl lg:text-6xl text-cream tracking-tight group-hover:text-accent transition-colors duration-300">
+          {project.name}
+        </h3>
         {link && (
           <a
             href={link}

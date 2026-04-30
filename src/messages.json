@@ -1,0 +1,432 @@
+{
+  "Hero": {
+    "name": [
+      { "full": "Pasquale", "short": "P", "italic": false },
+      { "full": "Junior", "short": "J", "italic": false },
+      { "full": "Montò", "short": "M", "italic": true }
+    ],
+    "description": "Finishing my CS degree at Federico II, after a year of backend work at IdeaSolutions and the Apple Developer Academy. Right now I'm the sole engineer and co-founder at Clinequal — a startup where I translate domain theory from my PhD co-founders into software that flags bias in clinical trials.\nBuilding alone has forced me to make every architectural decision myself: what to build, what to cut, how to keep things simple enough to actually ship. I like that pressure, but I also want to work alongside people who are better than me.\nOutside of code, I'm a photographer, a Tango dancer, and a Jazz/Prog-Rock lover. Based in Naples, Italy."
+  },
+  "Projects": {
+    "title": "Work",
+    "label": "(selected work)",
+    "items": [
+      {
+        "name": "CLINEQUAL",
+        "description": "Clinical trial bias analysis platform. 15+ statistical tests, LLM-powered SDTM detection, GDPR/HIPAA compliant multi-tenant architecture. Supporting a €400K pre-seed round.",
+        "tech": ["Python", "FastAPI", "Next.js", "PostgreSQL", "Docker"],
+        "image": "/images/projects/clinequal.png",
+        "link": "https://clinequal.com"
+      },
+      {
+        "name": "IULY",
+        "description": "Cross-platform playlist converter between Apple Music and Spotify using ISRC matching. Strategy pattern for extensible provider support.",
+        "tech": ["TypeScript", "Node.js", "Redis", "React"],
+        "image": "/images/projects/iuly.png",
+        "github": "https://github.com/pakyjr"
+      },
+      {
+        "name": "BEEZZZ",
+        "description": "ESP32 IoT bee hive monitoring with real-time mic and accelerometer data via MQTT. I2S/I2C sensors, plus a companion iOS app.",
+        "tech": ["C++", "ESP32", "MQTT", "SwiftUI"],
+        "image": "/images/projects/beezzz.jpg",
+        "github": "https://github.com/pakyjr/Beezz-iOS"
+      },
+      {
+        "name": "ISWING",
+        "description": "An iOS app built with SwiftUI exploring motion and interaction patterns.",
+        "tech": ["Swift", "SwiftUI", "CoreMotion"],
+        "image": "/images/projects/iSwing.png",
+        "github": "https://github.com/pakyjr/iSwing"
+      },
+      {
+        "name": "TERMINAL TEXT EDITOR",
+        "description": "A terminal-based text editor written from scratch in C. Raw mode terminal handling, syntax highlighting, and file I/O.",
+        "tech": ["C", "POSIX", "Terminal"],
+        "image": "/images/projects/txted.png",
+        "github": "https://github.com/pakyjr/text_editor"
+      },
+      {
+        "name": "CONTAINER C++ LIBRARY",
+        "description": "A generic container library implementing core data structures with iterators, following STL conventions.",
+        "tech": ["C++", "Templates", "Data Structures"],
+        "image": "",
+        "github": "https://github.com/pakyjr/LASDPrj"
+      }
+    ]
+  },
+  "Experience": {
+    "title": "Experience",
+    "label": "(experience)",
+    "items": [
+      {
+        "role": "Lead Software Engineer & Co-Founder",
+        "company": "Clinequal",
+        "location": "Naples, ITA",
+        "period": "Jul 2025 — Present",
+        "link": "https://clinequal.com",
+        "highlights": [
+          {
+            "title": "Health-tech platform",
+            "description": "Architected a regulatory-ready (FDA/EMA) health-tech platform using Python/FastAPI, supporting a €400K pre-seed round and multi-tenant B2B pilots."
+          },
+          {
+            "title": "Ingestion pipeline",
+            "description": "Built an AI-powered ingestion pipeline utilizing a local LLM (Phi-3) to map clinical data to CDISC SDTM standards with strict PHI privacy."
+          },
+          {
+            "title": "Statistical engine",
+            "description": "Developed a plugin-based statistical engine with 15+ bias tests paired with an XAI layer for regulatory-aligned narratives."
+          },
+          {
+            "title": "Stockholm networking",
+            "description": "Represented the company at Tech Arena Stockholm, translating complex AI architecture to VC funds and investment banks."
+          }
+        ]
+      },
+      {
+        "role": "Software Engineer",
+        "company": "IdeaSolutions",
+        "location": "Naples, ITA",
+        "period": "Mar 2023 — Dec 2023",
+        "highlights": [
+          {
+            "title": "SuperGuidaTV contribution",
+            "description": "Contributed to SuperGuidaTV (500,000+ monthly active users), integrating core features like user watchlists."
+          },
+          {
+            "title": "Scoped works",
+            "description": "Set up serverless AWS DynamoDB, implemented Data Access Layer, and used SQS for background tasks."
+          },
+          {
+            "title": "Logging system",
+            "description": "Developed an automatic logging system following clean architecture for full traceability."
+          }
+        ]
+      }
+    ]
+  },
+  "Achievements": {
+    "title": "Recognition",
+    "label": "(achievements)",
+    "items": [
+      {
+        "title": "StartCup Campania Winner",
+        "description": "Regional startup competition, advancing to the PNI national competition in Ferrara."
+      },
+      {
+        "title": "That\u2019s a Hackathon Winner",
+        "description": "Hackathon promoted by the US Embassy in Naples."
+      },
+      {
+        "title": "Press Coverage \u2014 Il Mattino",
+        "description": "Clinequal featured for innovation in healthcare AI and clinical trial analysis."
+      }
+    ]
+  },
+  "About": {
+    "title": "About",
+    "label": "(about)",
+    "skills": [
+      {
+        "label": "Languages",
+        "items": ["TypeScript", "Swift", "Go", "Python", "C/C++", "Java", "SQL"]
+      },
+      {
+        "label": "Technologies",
+        "items": [
+          "Node.js",
+          "FastAPI",
+          "Next.js",
+          "PostgreSQL",
+          "DynamoDB",
+          "Redis",
+          "Docker",
+          "AWS"
+        ]
+      },
+      {
+        "label": "Architecture",
+        "items": [
+          "Microservices",
+          "REST APIs",
+          "Distributed Systems",
+          "Clean Architecture",
+          "Agile"
+        ]
+      }
+    ],
+    "languages": {
+      "label": "Spoken Languages",
+      "items": [
+        {
+          "language": "English",
+          "level": "Fluent",
+          "flag": "/images/flags/gb.png"
+        },
+        {
+          "language": "Portuguese",
+          "level": "Fluent",
+          "flag": "/images/flags/br.png"
+        },
+        {
+          "language": "Italian",
+          "level": "Fluent",
+          "flag": "/images/flags/it.png"
+        },
+        {
+          "language": "French",
+          "level": "Conversational",
+          "flag": "/images/flags/fr.png"
+        },
+        {
+          "language": "Spanish",
+          "level": "Conversational",
+          "flag": "/images/flags/es.png"
+        }
+      ]
+    }
+  },
+  "Education": {
+    "title": "Education",
+    "label": "(education)",
+    "items": [
+      {
+        "institution": "Apple Developer Academy",
+        "degree": "iOS Development",
+        "period": "Sep 2024 \u2014 Jun 2025",
+        "detail": "Swift/SwiftUI, cross-functional collaboration, Agile, business-oriented approach."
+      },
+      {
+        "institution": "Universit\u00E0 di Napoli Federico II",
+        "degree": "B.Sc. Computer Science",
+        "period": "Sep 2023 \u2014 Sep 2026"
+      },
+      {
+        "institution": "Jagiellonian University Krak\u00F3w",
+        "degree": "ERASMUS+ Exchange",
+        "period": "Oct 2025 \u2014 Feb 2026",
+        "detail": "Distributed Systems, Computer Networks, Formal Language Theory, Design Patterns."
+      }
+    ]
+  },
+  "Vinyl": {
+    "title": "On Rotation",
+    "label": "(on rotation)",
+    "items": [
+      {
+        "title": "Clube da Esquina",
+        "artist": "Lô Borges & Milton Nascimento",
+        "slug": "clube-da-esquina"
+      },
+      { "title": "Revolver", "artist": "The Beatles", "slug": "revolver" },
+      { "title": "Animals", "artist": "Pink Floyd", "slug": "animals" },
+      {
+        "title": "A Love Supreme",
+        "artist": "John Coltrane",
+        "slug": "a-love-supreme"
+      },
+      {
+        "title": "Kind of Blue",
+        "artist": "Miles Davis",
+        "slug": "kind-of-blue"
+      },
+      {
+        "title": "Forever Howlong",
+        "artist": "Black Country, New Road",
+        "slug": "forever-howlong"
+      },
+      {
+        "title": "To Pimp a Butterfly",
+        "artist": "Kendrick Lamar",
+        "slug": "to-pimp-a-butterfly"
+      },
+      { "title": "Transa", "artist": "Caetano Veloso", "slug": "transa" },
+      {
+        "title": "Awaken, My Love!",
+        "artist": "Childish Gambino",
+        "slug": "awaken-my-love"
+      },
+      {
+        "title": "Never Enough",
+        "artist": "Daniel Caesar",
+        "slug": "never-enough"
+      },
+      {
+        "title": "What Kind of Music",
+        "artist": "Tom Misch",
+        "slug": "what-kind-of-music"
+      },
+      {
+        "title": "When the Pawn…",
+        "artist": "Fiona Apple",
+        "slug": "when-the-pawn"
+      },
+      { "title": "98.12.28", "artist": "Fishmans", "slug": "98-12-28" },
+      {
+        "title": "The New Sound",
+        "artist": "Geordie Greep",
+        "slug": "the-new-sound"
+      },
+      {
+        "title": "Lift Your Skinny Fists Like Antennas to Heaven",
+        "artist": "GY!BE",
+        "slug": "lift-your-skinny-fists"
+      },
+      {
+        "title": "Jazzmatazz Vol. II",
+        "artist": "Guru",
+        "slug": "jazzmatazz-vol-ii"
+      },
+      {
+        "title": "Blues Blood",
+        "artist": "Immanuel Wilkins",
+        "slug": "blues-blood"
+      },
+      {
+        "title": "Turn On the Bright Lights",
+        "artist": "Interpol",
+        "slug": "turn-on-the-bright-lights"
+      },
+      { "title": "Grace", "artist": "Jeff Buckley", "slug": "grace" },
+      { "title": "Cloak", "artist": "Jordan Rakei", "slug": "cloak" },
+      {
+        "title": "The Epic",
+        "artist": "Kamasi Washington",
+        "slug": "the-epic"
+      },
+      {
+        "title": "untitled unmastered.",
+        "artist": "Kendrick Lamar",
+        "slug": "untitled-unmastered"
+      },
+      {
+        "title": "In the Court of the Crimson King",
+        "artist": "King Crimson",
+        "slug": "in-the-court"
+      },
+      { "title": "Red", "artist": "King Crimson", "slug": "red" },
+      { "title": "The OOZ", "artist": "King Krule", "slug": "the-ooz" },
+      {
+        "title": "The Miseducation of Lauryn Hill",
+        "artist": "Lauryn Hill",
+        "slug": "miseducation"
+      },
+      {
+        "title": "Yesterday's Gone",
+        "artist": "Loyle Carner",
+        "slug": "yesterdays-gone"
+      },
+      {
+        "title": "Imaginal Disk",
+        "artist": "Magdalena Bay",
+        "slug": "imaginal-disk"
+      },
+      {
+        "title": "What's Going On",
+        "artist": "Marvin Gaye",
+        "slug": "whats-going-on"
+      },
+      {
+        "title": "Brasilian Skies",
+        "artist": "Masayoshi Takanaka",
+        "slug": "brasilian-skies"
+      },
+      {
+        "title": "Jar of Flies",
+        "artist": "Alice in Chains",
+        "slug": "jar-of-flies"
+      },
+      { "title": "Mezzanine", "artist": "Massive Attack", "slug": "mezzanine" },
+      {
+        "title": "The Glow, Pt. 2",
+        "artist": "The Microphones",
+        "slug": "the-glow-pt-2"
+      },
+      {
+        "title": "冀西南林路行",
+        "artist": "Omnipotent Youth Society",
+        "slug": "omnipotent-youth"
+      },
+      {
+        "title": "Songs for the Deaf",
+        "artist": "Queens of the Stone Age",
+        "slug": "songs-for-the-deaf"
+      },
+      { "title": "OK Computer", "artist": "Radiohead", "slug": "ok-computer" },
+      { "title": "In Rainbows", "artist": "Radiohead", "slug": "in-rainbows" },
+      { "title": "Amnesiac", "artist": "Radiohead", "slug": "amnesiac" },
+      { "title": "The Bends", "artist": "Radiohead", "slug": "the-bends" },
+      {
+        "title": "In My Element",
+        "artist": "Robert Glasper",
+        "slug": "in-my-element"
+      },
+      {
+        "title": "The Queen Is Dead",
+        "artist": "The Smiths",
+        "slug": "the-queen-is-dead"
+      },
+      {
+        "title": "Siamese Dream",
+        "artist": "The Smashing Pumpkins",
+        "slug": "siamese-dream"
+      },
+      {
+        "title": "Getz/Gilberto",
+        "artist": "Stan Getz & João Gilberto",
+        "slug": "getz-gilberto"
+      },
+      {
+        "title": "The Royal Scam",
+        "artist": "Steely Dan",
+        "slug": "the-royal-scam"
+      },
+      {
+        "title": "Songs in the Key of Life",
+        "artist": "Stevie Wonder",
+        "slug": "songs-in-the-key-of-life"
+      },
+      { "title": "Is This It", "artist": "The Strokes", "slug": "is-this-it" },
+      {
+        "title": "InnerSpeaker",
+        "artist": "Tame Impala",
+        "slug": "innerspeaker"
+      },
+      {
+        "title": "Vinicius & Toquinho",
+        "artist": "Vinicius de Moraes & Toquinho",
+        "slug": "vinicius-toquinho"
+      }
+    ]
+  },
+  "Photography": {
+    "title": "Photography",
+    "label": "(photography)",
+    "items": [
+      { "src": "CROATIA-266.jpg", "orientation": "portrait" },
+      { "src": "EDO-06.jpg", "orientation": "portrait" },
+      { "src": "grotta-057.jpg", "orientation": "portrait" },
+      { "src": "grvn-48.jpg", "orientation": "portrait" },
+      { "src": "gv_l.jpg", "orientation": "portrait" },
+      { "src": "ML-151.jpg", "orientation": "portrait" },
+      { "src": "ML-206.jpg", "orientation": "portrait" },
+      { "src": "post-025.jpg", "orientation": "portrait" },
+      { "src": "R0004931.jpg", "orientation": "landscape" },
+      { "src": "uoma-100.jpg", "orientation": "portrait" },
+      { "src": "00.jpg", "orientation": "portrait" }
+    ]
+  },
+  "Footer": {
+    "label": "(get in touch)",
+    "email": "pjr.monto@gmail.com",
+    "items": [
+      {
+        "label": "GitHub",
+        "link": "https://github.com/pakyjr"
+      },
+      { "label": "LinkedIn", "link": "https://linkedin.com/in/pasqjr" },
+      { "label": "Instagram", "link": "https://www.instagram.com/pakyjr/" }
+    ]
+  }
+}

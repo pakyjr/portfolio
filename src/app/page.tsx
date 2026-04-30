@@ -13,6 +13,7 @@ import SectionDivider from "@/components/SectionDivider";
 import MusicPlayer from "@/components/MusicPlayer";
 import { shuffle } from "@/helpers/shuffle";
 import { tracks } from "@/lib/tracks";
+import messages from "@/messages.json";
 
 export default function Home() {
   return (
@@ -21,19 +22,19 @@ export default function Home() {
         <Nav />
         <main>
           <Hero />
-          <SectionDivider label="Work" />
+          <SectionDivider label={messages.Projects.title} />
           <Projects />
-          <SectionDivider label="Experience" />
+          <SectionDivider label={messages.Experience.title} />
           <Experience />
-          <SectionDivider label="Recognition" />
+          <SectionDivider label={messages.Achievements.title} />
           <Achievements />
-          <SectionDivider label="About" />
+          <SectionDivider label={messages.About.title} />
           <About />
-          <SectionDivider label="Education" />
+          <SectionDivider label={messages.Education.title} />
           <EducationSection />
-          <SectionDivider label="On Rotation" />
+          <SectionDivider label={messages.Vinyl.title} />
           <Vinyl />
-          <SectionDivider label="Photography" />
+          <SectionDivider label={messages.Photography.title} />
           <Photography />
         </main>
         <Footer />

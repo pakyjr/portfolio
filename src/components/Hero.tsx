@@ -4,23 +4,20 @@ import { useEffect, useState, useRef } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { staggerContainer, fadeUp } from "@/lib/animations";
+import messages from "@/messages.json";
+
+const NAME_LINES = messages.Hero.name;
 
 const Silk = dynamic(() => import("./Silk"), { ssr: false });
 
-const nameLines = [
-  { full: "Pasquale", short: "P", italic: false },
-  { full: "Junior", short: "J", italic: false },
-  { full: "Montò", short: "M", italic: true },
-];
-
 function useNameAnimation() {
   const [displayed, setDisplayed] = useState(() =>
-    nameLines.map((l) => l.full)
+    NAME_LINES.map((l) => l.full),
   );
   const [isAnimating, setIsAnimating] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const phaseRef = useRef<"full" | "shrinking" | "short" | "growing">("full");
-  const posRef = useRef(nameLines.map((l) => l.full.length));
+  const posRef = useRef(NAME_LINES.map((l) => l.full.length));
 
   useEffect(() => {
     function tick() {
@@ -45,7 +42,7 @@ function useNameAnimation() {
         }
         posRef.current = posRef.current.map((p) => Math.max(1, p - 1));
         setDisplayed(
-          nameLines.map((l, i) => l.full.slice(0, posRef.current[i]))
+          NAME_LINES.map((l, i) => l.full.slice(0, posRef.current[i])),
         );
         timeoutRef.current = setTimeout(tick, 35 + Math.random() * 20);
         return;
@@ -61,7 +58,7 @@ function useNameAnimation() {
 
       if (phase === "growing") {
         const allFull = posRef.current.every(
-          (p, i) => p >= nameLines[i].full.length
+          (p, i) => p >= NAME_LINES[i].full.length,
         );
         if (allFull) {
           phaseRef.current = "full";
@@ -69,10 +66,10 @@ function useNameAnimation() {
           return;
         }
         posRef.current = posRef.current.map((p, i) =>
-          Math.min(nameLines[i].full.length, p + 1)
+          Math.min(NAME_LINES[i].full.length, p + 1),
         );
         setDisplayed(
-          nameLines.map((l, i) => l.full.slice(0, posRef.current[i]))
+          NAME_LINES.map((l, i) => l.full.slice(0, posRef.current[i])),
         );
         timeoutRef.current = setTimeout(tick, 55 + Math.random() * 30);
         return;
@@ -114,7 +111,7 @@ export default function Hero() {
           className="md:col-span-7"
         >
           <h1 className="font-serif leading-[0.95] tracking-tight">
-            {nameLines.map((line, i) => (
+            {NAME_LINES.map((line, i) => (
               <span key={line.full} className="block overflow-hidden">
                 <motion.span
                   variants={fadeUp}
@@ -149,22 +146,8 @@ export default function Hero() {
           className="md:col-span-4 md:col-start-9 flex flex-col justify-end"
         >
           <div className="space-y-5">
-            <p className="font-serif text-lg md:text-xl leading-relaxed text-cream-dim/40">
-              Finishing my CS degree at Federico II, after a year of backend work
-              at IdeaSolutions and the Apple Developer Academy. Right now
-              I&apos;m the sole engineer and co-founder at Clinequal — a startup
-              where I translate domain theory from my PhD co-founders into
-              software that flags bias in clinical trials.
-            </p>
-            <p className="font-serif text-lg md:text-xl leading-relaxed text-cream-dim/40">
-              Building alone has forced me to make every architectural decision
-              myself: what to build, what to cut, how to keep things simple
-              enough to actually ship. I like that pressure, but I also want to
-              work alongside people who are better than me.
-            </p>
-            <p className="font-serif text-lg md:text-xl leading-relaxed text-cream-dim/40">
-              Outside of code, I&apos;m a photographer, a Tango dancer, and a
-              Jazz/Prog-Rock lover. Based in Naples, Italy.
+            <p className="font-serif text-lg md:text-xl leading-relaxed text-cream-dim/40 whitespace-pre-line">
+              {messages.Hero.description}
             </p>
           </div>
         </motion.div>
