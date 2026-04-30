@@ -1,5 +1,4 @@
 export interface Project {
-  number: string;
   name: string;
   description: string;
   tech: string[];
@@ -28,63 +27,6 @@ export interface Education {
   period: string;
   detail?: string;
 }
-
-export const projects: Project[] = [
-  {
-    number: "01",
-    name: "CLINEQUAL",
-    description:
-      "Clinical trial bias analysis platform. 15+ statistical tests, LLM-powered SDTM detection, GDPR/HIPAA compliant multi-tenant architecture. Supporting a \u20AC400K pre-seed round.",
-    tech: ["Python", "FastAPI", "Next.js", "PostgreSQL", "Docker"],
-    image: "/images/projects/clinequal.png",
-    link: "https://clinequal.com",
-  },
-  {
-    number: "02",
-    name: "IULY",
-    description:
-      "Cross-platform playlist converter between Apple Music and Spotify using ISRC matching. Strategy pattern for extensible provider support.",
-    tech: ["TypeScript", "Node.js", "Redis", "React"],
-    image: "/images/projects/iuly.png",
-    github: "https://github.com/pakyjr",
-  },
-  {
-    number: "03",
-    name: "BEEZZZ",
-    description:
-      "ESP32 IoT bee hive monitoring with real-time mic and accelerometer data via MQTT. I2S/I2C sensors, plus a companion iOS app.",
-    tech: ["C++", "ESP32", "MQTT", "SwiftUI"],
-    image: "/images/projects/beezzz.jpg",
-    github: "https://github.com/pakyjr/Beezz-iOS",
-  },
-  {
-    number: "04",
-    name: "ISWING",
-    description:
-      "An iOS app built with SwiftUI exploring motion and interaction patterns.",
-    tech: ["Swift", "SwiftUI", "CoreMotion"],
-    image: "/images/projects/iSwing.png",
-    github: "https://github.com/pakyjr/iSwing",
-  },
-  {
-    number: "05",
-    name: "TERMINAL TEXT EDITOR",
-    description:
-      "A terminal-based text editor written from scratch in C. Raw mode terminal handling, syntax highlighting, and file I/O.",
-    tech: ["C", "POSIX", "Terminal"],
-    image: "/images/projects/txted.png",
-    github: "https://github.com/pakyjr/text_editor",
-  },
-  {
-    number: "06",
-    name: "CONTAINER C++ LIBRARY",
-    description:
-      "A generic container library implementing core data structures with iterators, following STL conventions.",
-    tech: ["C++", "Templates", "Data Structures"],
-    image: "",
-    github: "https://github.com/pakyjr/LASDPrj",
-  },
-];
 
 export const experiences: Experience[] = [
   {

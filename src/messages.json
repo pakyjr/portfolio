@@ -6,5 +6,53 @@
       { "full": "Montò", "short": "M", "italic": true }
     ],
     "description": "Finishing my CS degree at Federico II, after a year of backend work at IdeaSolutions and the Apple Developer Academy. Right now I'm the sole engineer and co-founder at Clinequal — a startup where I translate domain theory from my PhD co-founders into software that flags bias in clinical trials.\nBuilding alone has forced me to make every architectural decision myself: what to build, what to cut, how to keep things simple enough to actually ship. I like that pressure, but I also want to work alongside people who are better than me.\nOutside of code, I'm a photographer, a Tango dancer, and a Jazz/Prog-Rock lover. Based in Naples, Italy."
+  },
+  "Projects": {
+    "title": "Work",
+    "label": "(selected work)",
+    "items": [
+      {
+        "name": "CLINEQUAL",
+        "description": "Clinical trial bias analysis platform. 15+ statistical tests, LLM-powered SDTM detection, GDPR/HIPAA compliant multi-tenant architecture. Supporting a €400K pre-seed round.",
+        "tech": ["Python", "FastAPI", "Next.js", "PostgreSQL", "Docker"],
+        "image": "/images/projects/clinequal.png",
+        "link": "https://clinequal.com"
+      },
+      {
+        "name": "IULY",
+        "description": "Cross-platform playlist converter between Apple Music and Spotify using ISRC matching. Strategy pattern for extensible provider support.",
+        "tech": ["TypeScript", "Node.js", "Redis", "React"],
+        "image": "/images/projects/iuly.png",
+        "github": "https://github.com/pakyjr"
+      },
+      {
+        "name": "BEEZZZ",
+        "description": "ESP32 IoT bee hive monitoring with real-time mic and accelerometer data via MQTT. I2S/I2C sensors, plus a companion iOS app.",
+        "tech": ["C++", "ESP32", "MQTT", "SwiftUI"],
+        "image": "/images/projects/beezzz.jpg",
+        "github": "https://github.com/pakyjr/Beezz-iOS"
+      },
+      {
+        "name": "ISWING",
+        "description": "An iOS app built with SwiftUI exploring motion and interaction patterns.",
+        "tech": ["Swift", "SwiftUI", "CoreMotion"],
+        "image": "/images/projects/iSwing.png",
+        "github": "https://github.com/pakyjr/iSwing"
+      },
+      {
+        "name": "TERMINAL TEXT EDITOR",
+        "description": "A terminal-based text editor written from scratch in C. Raw mode terminal handling, syntax highlighting, and file I/O.",
+        "tech": ["C", "POSIX", "Terminal"],
+        "image": "/images/projects/txted.png",
+        "github": "https://github.com/pakyjr/text_editor"
+      },
+      {
+        "name": "CONTAINER C++ LIBRARY",
+        "description": "A generic container library implementing core data structures with iterators, following STL conventions.",
+        "tech": ["C++", "Templates", "Data Structures"],
+        "image": "",
+        "github": "https://github.com/pakyjr/LASDPrj"
+      }
+    ]
   }
 }
