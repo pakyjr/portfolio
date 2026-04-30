@@ -24,7 +24,7 @@ export default function Home() {
           <Hero />
           <SectionDivider label={messages.Projects.title} />
           <Projects />
-          <SectionDivider label="Experience" />
+          <SectionDivider label={messages.Experience.title} />
           <Experience />
           <SectionDivider label="Recognition" />
           <Achievements />

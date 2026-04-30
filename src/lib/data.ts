@@ -28,33 +28,6 @@ export interface Education {
   detail?: string;
 }
 
-export const experiences: Experience[] = [
-  {
-    role: "Lead Software Engineer & Co-Founder",
-    company: "Clinequal",
-    location: "Naples, ITA",
-    period: "Jul 2025 \u2014 Present",
-    link: "https://clinequal.com",
-    highlights: [
-      "Architected a regulatory-ready (FDA/EMA) health-tech platform using Python/FastAPI, supporting a \u20AC400K pre-seed round and multi-tenant B2B pilots.",
-      "Built an AI-powered ingestion pipeline utilizing a local LLM (Phi-3) to map clinical data to CDISC SDTM standards with strict PHI privacy.",
-      "Developed a plugin-based statistical engine with 15+ bias tests paired with an XAI layer for regulatory-aligned narratives.",
-      "Represented the company at Tech Arena Stockholm, translating complex AI architecture to VC funds and investment banks.",
-    ],
-  },
-  {
-    role: "Software Engineer",
-    company: "IdeaSolutions",
-    location: "Naples, ITA",
-    period: "Mar 2023 \u2014 Dec 2023",
-    highlights: [
-      "Contributed to SuperGuidaTV (500,000+ monthly active users), integrating core features like user watchlists.",
-      "Set up serverless AWS DynamoDB, implemented Data Access Layer, and used SQS for background tasks.",
-      "Developed an automatic logging system following clean architecture for full traceability.",
-    ],
-  },
-];
-
 export const achievements: Achievement[] = [
   {
     title: "StartCup Campania Winner",

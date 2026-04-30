@@ -54,5 +54,56 @@
         "github": "https://github.com/pakyjr/LASDPrj"
       }
     ]
+  },
+  "Experience": {
+    "title": "Experience",
+    "label": "(experience)",
+    "items": [
+      {
+        "role": "Lead Software Engineer & Co-Founder",
+        "company": "Clinequal",
+        "location": "Naples, ITA",
+        "period": "Jul 2025 — Present",
+        "link": "https://clinequal.com",
+        "highlights": [
+          {
+            "title": "Health-tech platform",
+            "description": "Architected a regulatory-ready (FDA/EMA) health-tech platform using Python/FastAPI, supporting a €400K pre-seed round and multi-tenant B2B pilots."
+          },
+          {
+            "title": "Ingestion pipeline",
+            "description": "Built an AI-powered ingestion pipeline utilizing a local LLM (Phi-3) to map clinical data to CDISC SDTM standards with strict PHI privacy."
+          },
+          {
+            "title": "Statistical engine",
+            "description": "Developed a plugin-based statistical engine with 15+ bias tests paired with an XAI layer for regulatory-aligned narratives."
+          },
+          {
+            "title": "Stockholm networking",
+            "description": "Represented the company at Tech Arena Stockholm, translating complex AI architecture to VC funds and investment banks."
+          }
+        ]
+      },
+      {
+        "role": "Software Engineer",
+        "company": "IdeaSolutions",
+        "location": "Naples, ITA",
+        "period": "Mar 2023 — Dec 2023",
+        "highlights": [
+          {
+            "title": "SuperGuidaTV contribution",
+            "description": "Contributed to SuperGuidaTV (500,000+ monthly active users), integrating core features like user watchlists."
+          },
+          {
+            "title": "Scoped works",
+            "description": "Set up serverless AWS DynamoDB, implemented Data Access Layer, and used SQS for background tasks."
+          },
+          {
+            "title": "Logging system",
+            "description": "Developed an automatic logging system following clean architecture for full traceability."
+          }
+        ]
+      }
+    ]
   }
 }

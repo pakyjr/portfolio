@@ -2,13 +2,15 @@
 
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "@/lib/animations";
-import { experiences } from "@/lib/data";
+import messages from "@/messages.json";
+
+const EXPERIENCE = messages.Experience;
 
 export default function Experience() {
   return (
     <section id="experience" className="px-6 md:px-12 py-32 md:py-44">
       <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12">
-        (experience)
+        {EXPERIENCE.label}
       </p>
       <motion.div
         variants={staggerContainer}
@@ -17,8 +19,8 @@ export default function Experience() {
         viewport={{ once: true, margin: "-100px" }}
         className="space-y-16"
       >
-        {experiences.map((exp) => (
-          <motion.div key={exp.company} variants={fadeUp}>
+        {EXPERIENCE.items.map((exp) => (
+          <motion.div key={exp.period} variants={fadeUp}>
             <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-4">
               <div>
                 <h3 className="font-serif text-2xl md:text-3xl text-cream">
@@ -33,12 +35,12 @@ export default function Experience() {
               </p>
             </div>
             <ul className="space-y-3 mt-6">
-              {exp.highlights.map((h, i) => (
+              {exp.highlights.map((h) => (
                 <li
-                  key={i}
+                  key={h.title}
                   className="font-mono text-sm text-cream/70 leading-relaxed pl-4 border-l border-cream-dim/20"
                 >
-                  {h}
+                  {h.description}
                 </li>
               ))}
             </ul>
