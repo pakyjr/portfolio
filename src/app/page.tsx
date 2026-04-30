@@ -34,7 +34,7 @@ export default function Home() {
           <EducationSection />
           <SectionDivider label={messages.Vinyl.title} />
           <Vinyl />
-          <SectionDivider label="Photography" />
+          <SectionDivider label={messages.Photography.title} />
           <Photography />
         </main>
         <Footer />

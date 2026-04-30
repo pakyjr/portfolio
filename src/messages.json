@@ -399,5 +399,22 @@
         "slug": "vinicius-toquinho"
       }
     ]
+  },
+  "Photography": {
+    "title": "Photography",
+    "label": "(photography)",
+    "items": [
+      { "src": "CROATIA-266.jpg", "orientation": "portrait" },
+      { "src": "EDO-06.jpg", "orientation": "portrait" },
+      { "src": "grotta-057.jpg", "orientation": "portrait" },
+      { "src": "grvn-48.jpg", "orientation": "portrait" },
+      { "src": "gv_l.jpg", "orientation": "portrait" },
+      { "src": "ML-151.jpg", "orientation": "portrait" },
+      { "src": "ML-206.jpg", "orientation": "portrait" },
+      { "src": "post-025.jpg", "orientation": "portrait" },
+      { "src": "R0004931.jpg", "orientation": "landscape" },
+      { "src": "uoma-100.jpg", "orientation": "portrait" },
+      { "src": "00.jpg", "orientation": "portrait" }
+    ]
   }
 }

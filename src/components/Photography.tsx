@@ -4,20 +4,9 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/animations";
+import messages from "@/messages.json";
 
-const photos = [
-  { src: "CROATIA-266.jpg", orientation: "portrait" as const },
-  { src: "EDO-06.jpg", orientation: "portrait" as const },
-  { src: "grotta-057.jpg", orientation: "portrait" as const },
-  { src: "grvn-48.jpg", orientation: "portrait" as const },
-  { src: "gv_l.jpg", orientation: "portrait" as const },
-  { src: "ML-151.jpg", orientation: "portrait" as const },
-  { src: "ML-206.jpg", orientation: "portrait" as const },
-  { src: "post-025.jpg", orientation: "portrait" as const },
-  { src: "R0004931.jpg", orientation: "landscape" as const },
-  { src: "uoma-100.jpg", orientation: "portrait" as const },
-  { src: "00.jpg", orientation: "portrait" as const },
-];
+const PHOTOGRAPHY = messages.Photography;
 
 export default function Photography() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -63,7 +52,7 @@ export default function Photography() {
           viewport={{ once: true }}
           className="font-mono text-xs text-accent tracking-[0.3em] uppercase"
         >
-          (photography)
+          {PHOTOGRAPHY.label}
         </motion.p>
 
         {/* Arrows — desktop */}
@@ -120,7 +109,7 @@ export default function Photography() {
             display: none;
           }
         `}</style>
-        {photos.map((photo) => (
+        {PHOTOGRAPHY.items.map((photo) => (
           <div
             key={photo.src}
             className="flex-shrink-0 relative overflow-hidden"
@@ -145,7 +134,7 @@ export default function Photography() {
 
       {/* Mobile: vertical stack */}
       <div className="md:hidden flex flex-col gap-4 px-6">
-        {photos.map((photo) => (
+        {PHOTOGRAPHY.items.map((photo) => (
           <div
             key={photo.src}
             className={`w-full relative overflow-hidden ${
