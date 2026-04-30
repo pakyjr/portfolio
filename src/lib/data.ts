@@ -28,23 +28,6 @@ export interface Education {
   detail?: string;
 }
 
-export const achievements: Achievement[] = [
-  {
-    title: "StartCup Campania Winner",
-    description:
-      "Regional startup competition, advancing to the PNI national competition in Ferrara.",
-  },
-  {
-    title: "That\u2019s a Hackathon Winner",
-    description: "Hackathon promoted by the US Embassy in Naples.",
-  },
-  {
-    title: "Press Coverage \u2014 Il Mattino",
-    description:
-      "Clinequal featured for innovation in healthcare AI and clinical trial analysis.",
-  },
-];
-
 export const education: Education[] = [
   {
     institution: "Apple Developer Academy",

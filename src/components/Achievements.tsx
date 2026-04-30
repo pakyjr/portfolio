@@ -2,13 +2,15 @@
 
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "@/lib/animations";
-import { achievements } from "@/lib/data";
+import messages from "@/messages.json";
+
+const ACHIEVEMENTS = messages.Achievements;
 
 export default function Achievements() {
   return (
     <section id="achievements" className="px-6 md:px-12 py-32 md:py-44">
       <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12">
-        (achievements)
+        {ACHIEVEMENTS.label}
       </p>
       <motion.div
         variants={staggerContainer}
@@ -17,7 +19,7 @@ export default function Achievements() {
         viewport={{ once: true, margin: "-100px" }}
         className="grid grid-cols-1 md:grid-cols-3 gap-8"
       >
-        {achievements.map((a) => (
+        {ACHIEVEMENTS.items.map((a) => (
           <motion.div
             key={a.title}
             variants={fadeUp}
