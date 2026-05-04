@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, CSSProperties } from "react";
 import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
-import { staggerContainer, fadeUp } from "@/lib/animations";
 
 const Silk = dynamic(() => import("./Silk"), { ssr: false });
 
@@ -15,7 +13,7 @@ const nameLines = [
 
 function useNameAnimation() {
   const [displayed, setDisplayed] = useState(() =>
-    nameLines.map((l) => l.full)
+    nameLines.map((l) => l.full),
   );
   const [isAnimating, setIsAnimating] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -28,11 +26,14 @@ function useNameAnimation() {
 
       if (phase === "full") {
         setIsAnimating(false);
-        timeoutRef.current = setTimeout(() => {
-          phaseRef.current = "shrinking";
-          setIsAnimating(true);
-          tick();
-        }, 3000 + Math.random() * 2000);
+        timeoutRef.current = setTimeout(
+          () => {
+            phaseRef.current = "shrinking";
+            setIsAnimating(true);
+            tick();
+          },
+          3000 + Math.random() * 2000,
+        );
         return;
       }
 
@@ -45,23 +46,26 @@ function useNameAnimation() {
         }
         posRef.current = posRef.current.map((p) => Math.max(1, p - 1));
         setDisplayed(
-          nameLines.map((l, i) => l.full.slice(0, posRef.current[i]))
+          nameLines.map((l, i) => l.full.slice(0, posRef.current[i])),
         );
         timeoutRef.current = setTimeout(tick, 35 + Math.random() * 20);
         return;
       }
 
       if (phase === "short") {
-        timeoutRef.current = setTimeout(() => {
-          phaseRef.current = "growing";
-          tick();
-        }, 2000 + Math.random() * 1500);
+        timeoutRef.current = setTimeout(
+          () => {
+            phaseRef.current = "growing";
+            tick();
+          },
+          2000 + Math.random() * 1500,
+        );
         return;
       }
 
       if (phase === "growing") {
         const allFull = posRef.current.every(
-          (p, i) => p >= nameLines[i].full.length
+          (p, i) => p >= nameLines[i].full.length,
         );
         if (allFull) {
           phaseRef.current = "full";
@@ -69,10 +73,10 @@ function useNameAnimation() {
           return;
         }
         posRef.current = posRef.current.map((p, i) =>
-          Math.min(nameLines[i].full.length, p + 1)
+          Math.min(nameLines[i].full.length, p + 1),
         );
         setDisplayed(
-          nameLines.map((l, i) => l.full.slice(0, posRef.current[i]))
+          nameLines.map((l, i) => l.full.slice(0, posRef.current[i])),
         );
         timeoutRef.current = setTimeout(tick, 55 + Math.random() * 30);
         return;
@@ -99,7 +103,13 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center px-6 md:px-12 py-24 overflow-hidden hero-grain">
       {/* Silk WebGL background */}
       <div className="absolute inset-0 z-0">
-        <Silk speed={3} scale={1} color="#1a1a1a" noiseIntensity={1.5} rotation={0} />
+        <Silk
+          speed={3}
+          scale={1}
+          color="#1a1a1a"
+          noiseIntensity={1.5}
+          rotation={0}
+        />
       </div>
 
       {/* Bottom vignette to blend into rest of page */}
@@ -107,20 +117,16 @@ export default function Hero() {
 
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 w-full">
         {/* Name — left side */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-          className="md:col-span-7"
-        >
+        <div className="md:col-span-7">
           <h1 className="font-serif leading-[0.95] tracking-tight">
             {nameLines.map((line, i) => (
               <span key={line.full} className="block overflow-hidden">
-                <motion.span
-                  variants={fadeUp}
-                  className={`block text-[clamp(3.5rem,10vw,10rem)] text-cream ${
+                <span
+                  // variants={fadeUp}
+                  className={`block text-[clamp(3.5rem,10vw,10rem)] text-cream opacity-0 translate-y-7.5 animate-fade-up animation-delay-stagger ${
                     line.italic ? "italic" : ""
                   }`}
+                  style={{ "--stagger-order": i + 1 } as CSSProperties}
                 >
                   {displayed[i]}
                   <span
@@ -128,30 +134,25 @@ export default function Hero() {
                       isAnimating ? "bg-accent" : "bg-accent animate-pulse"
                     }`}
                   />
-                </motion.span>
+                </span>
               </span>
             ))}
           </h1>
 
-          <motion.p
-            variants={fadeUp}
-            className="mt-8 font-mono text-sm md:text-base text-cream-dim tracking-wide lowercase"
+          <p
+            className="mt-8 font-mono text-sm md:text-base text-cream-dim tracking-wide lowercase opacity-0 translate-y-7.5 animate-fade-up animation-delay-stagger"
+            style={{ "--stagger-order": nameLines.length + 1 } as CSSProperties}
           >
             if it moves me, it becomes my mission
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Bio — right side, subtle */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="md:col-span-4 md:col-start-9 flex flex-col justify-end"
-        >
+        <div className="md:col-span-4 md:col-start-9 flex flex-col justify-end opacity-0 animate-opacity-0-to-100">
           <div className="space-y-5">
             <p className="font-serif text-lg md:text-xl leading-relaxed text-cream-dim/40">
-              Finishing my CS degree at Federico II, after a year of backend work
-              at IdeaSolutions and the Apple Developer Academy. Right now
+              Finishing my CS degree at Federico II, after a year of backend
+              work at IdeaSolutions and the Apple Developer Academy. Right now
               I&apos;m the sole engineer and co-founder at Clinequal — a startup
               where I translate domain theory from my PhD co-founders into
               software that flags bias in clinical trials.
@@ -167,17 +168,12 @@ export default function Hero() {
               Jazz/Prog-Rock lover. Based in Naples, Italy.
             </p>
           </div>
-        </motion.div>
+        </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-12 left-6 md:left-12 font-mono text-xs text-cream-dim tracking-[0.3em] uppercase z-10"
-      >
+      <div className="absolute bottom-12 left-6 md:left-12 font-mono text-xs text-cream-dim tracking-[0.3em] uppercase z-10 opacity-0 translate-y-7.5 animate-fade-up [animation-delay:1200ms]">
         scroll
-      </motion.div>
+      </div>
     </section>
   );
 }
