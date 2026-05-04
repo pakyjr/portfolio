@@ -1,8 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { fadeUp, staggerContainer, scaleIn } from "@/lib/animations";
 import { skills, spokenLanguages } from "@/lib/data";
 import {
   SiTypescript,
@@ -20,6 +18,8 @@ import {
 import { FaJava, FaAws, FaDatabase } from "react-icons/fa";
 import { TbSql } from "react-icons/tb";
 import type { IconType } from "react-icons";
+import { useRef } from "react";
+import { useAnimateOnVisibility } from "./hooks/useAnimateOnVisibility";
 
 const techIcons: Record<string, IconType> = {
   TypeScript: SiTypescript,
@@ -84,6 +84,9 @@ function SkillRow({
 }
 
 export default function About() {
+  const container = useRef<HTMLDivElement | null>(null);
+  const { animationRequested } = useAnimateOnVisibility(container, 0.1);
+
   return (
     <section id="about" className="px-6 md:px-12 py-32 md:py-44">
       <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-16">
@@ -91,37 +94,60 @@ export default function About() {
       </p>
 
       {/* Skills + Photo grid */}
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+      <div
+        ref={container}
         className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-stretch"
       >
         <div className="md:col-span-7 flex flex-col justify-between self-stretch">
-          <motion.div variants={fadeUp}>
+          <div
+            className={[
+              "delay-100 ease-out duration-500",
+              animationRequested
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-7.5",
+            ].join(" ")}
+          >
             <SkillRow
               label="Languages"
               items={skills.languages}
               opacity="text-cream"
             />
-          </motion.div>
-          <motion.div variants={fadeUp}>
+          </div>
+          <div
+            className={[
+              "delay-200 ease-out duration-500",
+              animationRequested
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-7.5",
+            ].join(" ")}
+          >
             <SkillRow
               label="Technologies"
               items={skills.technologies}
               opacity="text-cream/60"
             />
-          </motion.div>
-          <motion.div variants={fadeUp}>
+          </div>
+          <div
+            className={[
+              "delay-300 ease-out duration-500",
+              animationRequested
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-7.5",
+            ].join(" ")}
+          >
             <SkillRow
               label="Architecture"
               items={skills.concepts}
               opacity="text-cream/35"
             />
-          </motion.div>
-          <motion.div
-            variants={fadeUp}
+          </div>
+          <div
+            className={[
+              "delay-400 ease-out duration-500",
+              animationRequested
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-7.5",
+            ].join(" ")}
           >
             <p className="font-mono text-xs text-accent tracking-[0.2em] uppercase mb-4">
               Spoken Languages
@@ -149,12 +175,16 @@ export default function About() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          variants={scaleIn}
-          className="md:col-span-3 md:col-start-10 relative flex items-start"
+        <div
+          className={[
+            "md:col-span-3 md:col-start-10 relative flex items-start delay-500 ease-out duration-800",
+            animationRequested
+              ? "opacity-100 scale-100"
+              : "opacity-0 scale-105",
+          ].join(" ")}
         >
           <div className="aspect-[3/4] bg-bg-raised w-full max-h-[500px] relative overflow-hidden">
             <Image
@@ -165,9 +195,8 @@ export default function About() {
               sizes="(max-width: 768px) 100vw, 25vw"
             />
           </div>
-        </motion.div>
-      </motion.div>
-
+        </div>
+      </div>
     </section>
   );
 }
