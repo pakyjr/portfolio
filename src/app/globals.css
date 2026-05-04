@@ -9,6 +9,11 @@
 
   --font-serif: var(--font-playfair), Georgia, serif;
   --font-mono: var(--font-jetbrains), "Courier New", monospace;
+
+  --animate-slider-left: transl-x-half 80s linear infinite;
+  --animate-slider-right: transl-x-half 90s linear infinite reverse;
+  --animate-opacity-0-to-100: opacity-0-to-100 0.8s ease-out 0.8s forwards;
+  --animate-fade-up: fade-up 0.5s ease-out forwards;
 }
 
 * {
@@ -59,6 +64,38 @@ body {
   70% { transform: translate(0%, 15%); }
   80% { transform: translate(3%, 35%); }
   90% { transform: translate(-10%, 10%); }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    translate: 0 1.875rem;
+  }
+
+  100% {
+    opacity: 100;
+    translate: none;
+  }
+}
+
+@keyframes transl-x-half {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes opacity-0-to-100 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100;
+  }
 }
 
 .hero-grain::before {
