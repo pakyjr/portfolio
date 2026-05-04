@@ -1,27 +1,28 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { fadeUp, staggerContainer } from "@/lib/animations";
 import { achievements } from "@/lib/data";
+import { useRef } from "react";
+import { useAnimateOnVisibility } from "./hooks/useAnimateOnVisibility";
 
 export default function Achievements() {
+  const container = useRef<HTMLDivElement | null>(null);
+  const { animationRequested } = useAnimateOnVisibility(container);
+
   return (
     <section id="achievements" className="px-6 md:px-12 py-32 md:py-44">
       <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12">
         (achievements)
       </p>
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-3 gap-8"
-      >
+      <div ref={container} className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {achievements.map((a) => (
-          <motion.div
+          <div
             key={a.title}
-            variants={fadeUp}
-            className="border-t border-cream-dim/20 pt-6"
+            className={[
+              "border-t border-cream-dim/20 pt-6 ease-out duration-500 transition-delay-stagger",
+              animationRequested
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-7.5",
+            ].join(" ")}
           >
             <h3 className="font-serif text-xl md:text-2xl text-cream mb-3">
               {a.title}
@@ -29,9 +30,9 @@ export default function Achievements() {
             <p className="font-mono text-sm text-cream-dim leading-relaxed">
               {a.description}
             </p>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }

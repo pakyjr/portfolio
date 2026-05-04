@@ -1,27 +1,32 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useAnimateOnVisibility } from "./hooks/useAnimateOnVisibility";
 
 export default function SectionDivider({ label }: { label?: string }) {
+  const divider = useRef<HTMLDivElement | null>(null);
+  const { animationRequested } = useAnimateOnVisibility(divider);
+
   return (
     <div className="px-6 md:px-12 py-8">
-      <motion.div
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-        className="h-px bg-gradient-to-r from-cream-dim/30 via-cream-dim/15 to-transparent origin-left"
+      <div
+        className={[
+          "h-px bg-linear-to-r from-cream-dim/30 via-cream-dim/15 to-transparent origin-left duration-800 ease-out",
+          animationRequested ? "scale-105 opacity-100" : "scale-100 opacity-0",
+        ].join(" ")}
+        ref={divider}
       />
       {label && (
-        <motion.h2
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="font-serif text-4xl md:text-6xl text-cream/10 mt-6 tracking-tight select-none"
+        <h2
+          className={[
+            "font-serif text-4xl md:text-6xl text-cream/10 mt-6 tracking-tight select-none duration-500 delay-300 ease-out",
+            animationRequested
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-2.5",
+          ].join(" ")}
         >
           {label}
-        </motion.h2>
+        </h2>
       )}
     </div>
   );

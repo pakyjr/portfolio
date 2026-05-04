@@ -1,27 +1,29 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { fadeUp, staggerContainer } from "@/lib/animations";
 import { education } from "@/lib/data";
+import { CSSProperties, useRef } from "react";
+import { useAnimateOnVisibility } from "./hooks/useAnimateOnVisibility";
 
 export default function EducationSection() {
+  const container = useRef<HTMLDivElement | null>(null);
+  const { animationRequested } = useAnimateOnVisibility(container, 0.25);
+
   return (
     <section id="education" className="px-6 md:px-12 py-32 md:py-44">
       <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12">
         (education)
       </p>
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="space-y-10"
-      >
-        {education.map((edu) => (
-          <motion.div
+      <div className="space-y-10" ref={container}>
+        {education.map((edu, idx) => (
+          <div
             key={edu.institution}
-            variants={fadeUp}
-            className="border-l border-cream-dim/20 pl-6"
+            className={[
+              "border-l border-cream-dim/20 pl-6 transition-delay-stagger ease-out duration-500",
+              animationRequested
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-7.5",
+            ].join(" ")}
+            style={{ "--stagger-order": idx + 1 } as CSSProperties}
           >
             <p className="font-mono text-xs text-cream-dim tracking-wide mb-1">
               {edu.period}
@@ -37,9 +39,9 @@ export default function EducationSection() {
                 {edu.detail}
               </p>
             )}
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }

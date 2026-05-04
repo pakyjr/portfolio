@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { fadeUp } from "@/lib/animations";
+import { useRef } from "react";
+import { useAnimateOnVisibility } from "./hooks/useAnimateOnVisibility";
 
 interface Album {
   title: string;
@@ -11,54 +11,134 @@ interface Album {
 }
 
 const albums: Album[] = [
-  { title: "Clube da Esquina", artist: "Lô Borges & Milton Nascimento", slug: "clube-da-esquina" },
+  {
+    title: "Clube da Esquina",
+    artist: "Lô Borges & Milton Nascimento",
+    slug: "clube-da-esquina",
+  },
   { title: "Revolver", artist: "The Beatles", slug: "revolver" },
   { title: "Animals", artist: "Pink Floyd", slug: "animals" },
   { title: "A Love Supreme", artist: "John Coltrane", slug: "a-love-supreme" },
   { title: "Kind of Blue", artist: "Miles Davis", slug: "kind-of-blue" },
-  { title: "Forever Howlong", artist: "Black Country, New Road", slug: "forever-howlong" },
-  { title: "To Pimp a Butterfly", artist: "Kendrick Lamar", slug: "to-pimp-a-butterfly" },
+  {
+    title: "Forever Howlong",
+    artist: "Black Country, New Road",
+    slug: "forever-howlong",
+  },
+  {
+    title: "To Pimp a Butterfly",
+    artist: "Kendrick Lamar",
+    slug: "to-pimp-a-butterfly",
+  },
   { title: "Transa", artist: "Caetano Veloso", slug: "transa" },
-  { title: "Awaken, My Love!", artist: "Childish Gambino", slug: "awaken-my-love" },
+  {
+    title: "Awaken, My Love!",
+    artist: "Childish Gambino",
+    slug: "awaken-my-love",
+  },
   { title: "Never Enough", artist: "Daniel Caesar", slug: "never-enough" },
-  { title: "What Kind of Music", artist: "Tom Misch", slug: "what-kind-of-music" },
+  {
+    title: "What Kind of Music",
+    artist: "Tom Misch",
+    slug: "what-kind-of-music",
+  },
   { title: "When the Pawn…", artist: "Fiona Apple", slug: "when-the-pawn" },
   { title: "98.12.28", artist: "Fishmans", slug: "98-12-28" },
   { title: "The New Sound", artist: "Geordie Greep", slug: "the-new-sound" },
-  { title: "Lift Your Skinny Fists Like Antennas to Heaven", artist: "GY!BE", slug: "lift-your-skinny-fists" },
+  {
+    title: "Lift Your Skinny Fists Like Antennas to Heaven",
+    artist: "GY!BE",
+    slug: "lift-your-skinny-fists",
+  },
   { title: "Jazzmatazz Vol. II", artist: "Guru", slug: "jazzmatazz-vol-ii" },
   { title: "Blues Blood", artist: "Immanuel Wilkins", slug: "blues-blood" },
-  { title: "Turn On the Bright Lights", artist: "Interpol", slug: "turn-on-the-bright-lights" },
+  {
+    title: "Turn On the Bright Lights",
+    artist: "Interpol",
+    slug: "turn-on-the-bright-lights",
+  },
   { title: "Grace", artist: "Jeff Buckley", slug: "grace" },
   { title: "Cloak", artist: "Jordan Rakei", slug: "cloak" },
   { title: "The Epic", artist: "Kamasi Washington", slug: "the-epic" },
-  { title: "untitled unmastered.", artist: "Kendrick Lamar", slug: "untitled-unmastered" },
-  { title: "In the Court of the Crimson King", artist: "King Crimson", slug: "in-the-court" },
+  {
+    title: "untitled unmastered.",
+    artist: "Kendrick Lamar",
+    slug: "untitled-unmastered",
+  },
+  {
+    title: "In the Court of the Crimson King",
+    artist: "King Crimson",
+    slug: "in-the-court",
+  },
   { title: "Red", artist: "King Crimson", slug: "red" },
   { title: "The OOZ", artist: "King Krule", slug: "the-ooz" },
-  { title: "The Miseducation of Lauryn Hill", artist: "Lauryn Hill", slug: "miseducation" },
-  { title: "Yesterday's Gone", artist: "Loyle Carner", slug: "yesterdays-gone" },
+  {
+    title: "The Miseducation of Lauryn Hill",
+    artist: "Lauryn Hill",
+    slug: "miseducation",
+  },
+  {
+    title: "Yesterday's Gone",
+    artist: "Loyle Carner",
+    slug: "yesterdays-gone",
+  },
   { title: "Imaginal Disk", artist: "Magdalena Bay", slug: "imaginal-disk" },
   { title: "What's Going On", artist: "Marvin Gaye", slug: "whats-going-on" },
-  { title: "Brasilian Skies", artist: "Masayoshi Takanaka", slug: "brasilian-skies" },
+  {
+    title: "Brasilian Skies",
+    artist: "Masayoshi Takanaka",
+    slug: "brasilian-skies",
+  },
   { title: "Jar of Flies", artist: "Alice in Chains", slug: "jar-of-flies" },
   { title: "Mezzanine", artist: "Massive Attack", slug: "mezzanine" },
-  { title: "The Glow, Pt. 2", artist: "The Microphones", slug: "the-glow-pt-2" },
-  { title: "冀西南林路行", artist: "Omnipotent Youth Society", slug: "omnipotent-youth" },
-  { title: "Songs for the Deaf", artist: "Queens of the Stone Age", slug: "songs-for-the-deaf" },
+  {
+    title: "The Glow, Pt. 2",
+    artist: "The Microphones",
+    slug: "the-glow-pt-2",
+  },
+  {
+    title: "冀西南林路行",
+    artist: "Omnipotent Youth Society",
+    slug: "omnipotent-youth",
+  },
+  {
+    title: "Songs for the Deaf",
+    artist: "Queens of the Stone Age",
+    slug: "songs-for-the-deaf",
+  },
   { title: "OK Computer", artist: "Radiohead", slug: "ok-computer" },
   { title: "In Rainbows", artist: "Radiohead", slug: "in-rainbows" },
   { title: "Amnesiac", artist: "Radiohead", slug: "amnesiac" },
   { title: "The Bends", artist: "Radiohead", slug: "the-bends" },
   { title: "In My Element", artist: "Robert Glasper", slug: "in-my-element" },
-  { title: "The Queen Is Dead", artist: "The Smiths", slug: "the-queen-is-dead" },
-  { title: "Siamese Dream", artist: "The Smashing Pumpkins", slug: "siamese-dream" },
-  { title: "Getz/Gilberto", artist: "Stan Getz & João Gilberto", slug: "getz-gilberto" },
+  {
+    title: "The Queen Is Dead",
+    artist: "The Smiths",
+    slug: "the-queen-is-dead",
+  },
+  {
+    title: "Siamese Dream",
+    artist: "The Smashing Pumpkins",
+    slug: "siamese-dream",
+  },
+  {
+    title: "Getz/Gilberto",
+    artist: "Stan Getz & João Gilberto",
+    slug: "getz-gilberto",
+  },
   { title: "The Royal Scam", artist: "Steely Dan", slug: "the-royal-scam" },
-  { title: "Songs in the Key of Life", artist: "Stevie Wonder", slug: "songs-in-the-key-of-life" },
+  {
+    title: "Songs in the Key of Life",
+    artist: "Stevie Wonder",
+    slug: "songs-in-the-key-of-life",
+  },
   { title: "Is This It", artist: "The Strokes", slug: "is-this-it" },
   { title: "InnerSpeaker", artist: "Tame Impala", slug: "innerspeaker" },
-  { title: "Vinicius & Toquinho", artist: "Vinicius de Moraes & Toquinho", slug: "vinicius-toquinho" },
+  {
+    title: "Vinicius & Toquinho",
+    artist: "Vinicius de Moraes & Toquinho",
+    slug: "vinicius-toquinho",
+  },
 ];
 
 const half = Math.ceil(albums.length / 2);
@@ -87,11 +167,9 @@ function AlbumCover({ album }: { album: Album }) {
 function MarqueeRow({
   items,
   direction,
-  speed,
 }: {
   items: Album[];
   direction: "left" | "right";
-  speed: number;
 }) {
   const doubled = [...items, ...items];
 
@@ -100,19 +178,11 @@ function MarqueeRow({
       <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-bg to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-bg to-transparent z-10 pointer-events-none" />
 
-      <motion.div
-        className="flex gap-3 md:gap-4 w-max"
-        animate={{
-          x: direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"],
-        }}
-        transition={{
-          x: {
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: speed,
-            ease: "linear",
-          },
-        }}
+      <div
+        className={[
+          "flex gap-3 md:gap-4 w-max animate-test",
+          direction === "left" ? "animate-slider-left" : "animate-slider-right",
+        ].join(" ")}
       >
         {doubled.map((album, i) => (
           <div
@@ -132,27 +202,32 @@ function MarqueeRow({
             </div>
           </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }
 
 export default function Vinyl() {
+  const label = useRef<HTMLDivElement | null>(null);
+  const { animationRequested } = useAnimateOnVisibility(label);
+
   return (
     <section id="vinyl" className="py-32 md:py-44">
-      <motion.p
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12 px-6 md:px-12"
+      <p
+        className={[
+          "font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12 px-6 md:px-12 ease-out duration-500",
+          animationRequested
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-7.5",
+        ].join(" ")}
+        ref={label}
       >
         (on rotation)
-      </motion.p>
+      </p>
 
       <div className="space-y-3 md:space-y-4">
-        <MarqueeRow items={row1} direction="left" speed={80} />
-        <MarqueeRow items={row2} direction="right" speed={90} />
+        <MarqueeRow items={row1} direction="left" />
+        <MarqueeRow items={row2} direction="right" />
       </div>
     </section>
   );

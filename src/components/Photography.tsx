@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { fadeUp } from "@/lib/animations";
+import { useAnimateOnVisibility } from "./hooks/useAnimateOnVisibility";
 
 const photos = [
   { src: "CROATIA-266.jpg", orientation: "portrait" as const },
@@ -23,6 +22,8 @@ export default function Photography() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const autoScrollRef = useRef<NodeJS.Timeout | null>(null);
+  const label = useRef<HTMLDivElement | null>(null);
+  const { animationRequested } = useAnimateOnVisibility(label);
 
   const scroll = useCallback((direction: "left" | "right") => {
     if (!scrollRef.current) return;
@@ -56,15 +57,17 @@ export default function Photography() {
   return (
     <section id="photography" className="py-32 md:py-44">
       <div className="flex items-center justify-between px-6 md:px-12 mb-12">
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="font-mono text-xs text-accent tracking-[0.3em] uppercase"
+        <p
+          className={[
+            "font-mono text-xs text-accent tracking-[0.3em] uppercase ease-out duration-500",
+            animationRequested
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-7.5",
+          ].join(" ")}
+          ref={label}
         >
           (photography)
-        </motion.p>
+        </p>
 
         {/* Arrows — desktop */}
         <div className="hidden md:flex gap-3">
@@ -149,9 +152,7 @@ export default function Photography() {
           <div
             key={photo.src}
             className={`w-full relative overflow-hidden ${
-              photo.orientation === "portrait"
-                ? "aspect-[2/3]"
-                : "aspect-[3/2]"
+              photo.orientation === "portrait" ? "aspect-[2/3]" : "aspect-[3/2]"
             }`}
           >
             <Image

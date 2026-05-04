@@ -1,12 +1,18 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { CSSProperties, useRef, useState } from "react";
 import Image from "next/image";
-import { fadeUp } from "@/lib/animations";
 import type { Project } from "@/lib/data";
 
-export default function ProjectRow({ project }: { project: Project }) {
+export default function ProjectRow({
+  project,
+  className,
+  style,
+}: {
+  project: Project;
+  className?: string;
+  style?: CSSProperties;
+}) {
   const rowRef = useRef<HTMLDivElement>(null);
   const [mouseY, setMouseY] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -20,13 +26,18 @@ export default function ProjectRow({ project }: { project: Project }) {
   const link = project.link || project.github;
 
   return (
-    <motion.div
+    <div
       ref={rowRef}
-      variants={fadeUp}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative border-b border-cream-dim/20 py-6 md:py-8 cursor-pointer"
+      className={[
+        "group relative border-b border-cream-dim/20 py-6 md:py-8 cursor-pointer",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      style={style}
     >
       <div className="relative z-10 flex items-baseline justify-between gap-4">
         <div className="flex items-baseline gap-4 md:gap-8 min-w-0">
@@ -77,6 +88,6 @@ export default function ProjectRow({ project }: { project: Project }) {
           </div>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }

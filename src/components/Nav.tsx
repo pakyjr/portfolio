@@ -1,8 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { navItem, staggerContainer } from "@/lib/animations";
+import { CSSProperties, useEffect, useRef, useState } from "react";
 
 const navLinks = [
   { label: "(PROJECTS)", href: "#projects" },
@@ -12,16 +10,54 @@ const navLinks = [
   { label: "(CONTACT)", href: "#contact" },
 ];
 
+const DEFAULT_RAF_VALUE = -1;
+const DURATION = 300;
+type NavState = "opened" | "closed" | "is-closing";
+
 export default function Nav() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [state, setState] = useState<NavState>("closed");
+  const navContainer = useRef<HTMLDivElement | null>(null);
+  const rAF = useRef<number>(DEFAULT_RAF_VALUE);
 
   const handleClick = (href: string) => {
-    setIsOpen(false);
+    setState("is-closing");
     const el = document.querySelector(href);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  useEffect(() => {
+    if (state !== "is-closing") {
+      return;
+    }
+
+    let initial = -1;
+    const loop: FrameRequestCallback = (timestamp) => {
+      if (initial === -1) {
+        initial = timestamp;
+      }
+      const elapsed = (timestamp - initial) / DURATION;
+      const progress = Math.min(elapsed, 1);
+      navContainer.current?.style.setProperty(
+        "opacity",
+        `${(1 - progress) * 100}%`,
+        "important",
+      );
+      if (progress >= 1) {
+        rAF.current = requestAnimationFrame(() => setState("closed"));
+      } else {
+        rAF.current = requestAnimationFrame(loop);
+      }
+    };
+
+    rAF.current = requestAnimationFrame(loop);
+
+    return () => {
+      cancelAnimationFrame(rAF.current);
+      setState("closed");
+    };
+  }, [state]);
 
   return (
     <>
@@ -34,53 +70,48 @@ export default function Nav() {
           PAKYJR
         </a>
         <button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => {
+            if (state === "closed") {
+              setState("opened");
+            } else if (state === "opened") {
+              setState("is-closing");
+            }
+          }}
           className="relative z-50 flex flex-col gap-[6px] w-8 h-8 items-center justify-center"
           aria-label="Toggle menu"
         >
           <span
             className={`block h-[1px] w-6 bg-cream transition-all duration-300 ${
-              isOpen ? "rotate-45 translate-y-[3.5px]" : ""
+              state === "opened" ? "rotate-45 translate-y-[3.5px]" : ""
             }`}
           />
           <span
             className={`block h-[1px] w-6 bg-cream transition-all duration-300 ${
-              isOpen ? "-rotate-45 -translate-y-[3.5px]" : ""
+              state === "opened" ? "-rotate-45 -translate-y-[3.5px]" : ""
             }`}
           />
         </button>
       </header>
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-bg-raised/95 backdrop-blur-sm flex items-center justify-center"
-          >
-            <motion.nav
-              variants={staggerContainer}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              className="flex flex-col items-center gap-8"
-            >
-              {navLinks.map((link) => (
-                <motion.button
-                  key={link.href}
-                  variants={navItem}
-                  onClick={() => handleClick(link.href)}
-                  className="font-serif text-4xl md:text-6xl text-cream hover:text-accent transition-colors duration-300 tracking-wide"
-                >
-                  {link.label}
-                </motion.button>
-              ))}
-            </motion.nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {state === "closed" ? null : (
+        <div
+          className="fixed inset-0 z-40 bg-bg-raised/95 backdrop-blur-sm flex items-center justify-center opacity-0 animate-opacity-0-to-100 duration-300 [animation-delay:0s]"
+          ref={navContainer}
+        >
+          <nav className="flex flex-col items-center gap-8">
+            {navLinks.map((link, idx) => (
+              <button
+                key={link.href}
+                onClick={() => handleClick(link.href)}
+                className="font-serif text-4xl md:text-6xl text-cream hover:text-accent transition-colors duration-300 tracking-wide translate-y-7.5 opacity-0 animate-fade-up animation-delay-stagger"
+                style={{ "--stagger-order": idx + 1 } as CSSProperties}
+              >
+                {link.label}
+              </button>
+            ))}
+          </nav>
+        </div>
+      )}
     </>
   );
 }
