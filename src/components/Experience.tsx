@@ -1,24 +1,30 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { fadeUp, staggerContainer } from "@/lib/animations";
 import { experiences } from "@/lib/data";
+import { useAnimateOnVisibility } from "./hooks/useAnimateOnVisibility";
+import { CSSProperties, useRef } from "react";
 
 export default function Experience() {
+  const container = useRef<HTMLDivElement | null>(null);
+  const { animationRequested } = useAnimateOnVisibility(container, 0.25);
+
   return (
     <section id="experience" className="px-6 md:px-12 py-32 md:py-44">
       <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12">
         (experience)
       </p>
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="space-y-16"
-      >
-        {experiences.map((exp) => (
-          <motion.div key={exp.company} variants={fadeUp}>
+      <div ref={container} className={"space-y-16"}>
+        {experiences.map((exp, idx) => (
+          <div
+            key={exp.company}
+            style={{ "--stagger-order": idx + 1 } as CSSProperties}
+            className={[
+              "transition-delay-stagger ease-out duration-500",
+              animationRequested
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-7.5",
+            ].join(" ")}
+          >
             <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-4">
               <div>
                 <h3 className="font-serif text-2xl md:text-3xl text-cream">
@@ -42,9 +48,9 @@ export default function Experience() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }
