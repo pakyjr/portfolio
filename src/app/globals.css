@@ -74,3 +74,11 @@ body {
   pointer-events: none;
   z-index: 1;
 }
+
+.transition-delay-stagger {
+  transition-delay: calc(var(--stagger-order) * 100ms);
+}
+
+.animation-delay-stagger {
+  animation-delay: calc(var(--stagger-order) * 100ms);
+}
