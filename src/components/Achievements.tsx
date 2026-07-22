@@ -6,10 +6,10 @@ import { achievements } from "@/lib/data";
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="px-6 md:px-12 py-32 md:py-44">
-      <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12">
+    <section id="achievements" className="px-6 py-24 md:px-12 md:py-32">
+      <h2 className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12">
         (achievements)
-      </p>
+      </h2>
       <motion.div
         variants={staggerContainer}
         initial="hidden"

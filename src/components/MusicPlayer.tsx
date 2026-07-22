@@ -113,7 +113,7 @@ export default function MusicPlayer({ tracks }: { tracks: Track[] }) {
 
         {/* Controls */}
         <div className="flex items-center gap-3 flex-shrink-0">
-          <button onClick={prev} className="text-cream-dim hover:text-cream transition-colors" aria-label="Previous">
+          <button onClick={prev} className="flex h-11 w-11 items-center justify-center text-cream-dim hover:text-cream transition-colors focus-visible:outline-2 focus-visible:outline-accent" aria-label="Previous track">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
               <path d="M3 2h2v12H3V2zm3.5 6 8.5 6V2l-8.5 6z" />
             </svg>
@@ -121,7 +121,7 @@ export default function MusicPlayer({ tracks }: { tracks: Track[] }) {
 
           <button
             onClick={isPlaying ? pause : play}
-            className="w-8 h-8 border border-cream-dim/30 rounded-full flex items-center justify-center hover:border-accent hover:text-accent text-cream transition-colors"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-cream-dim/30 text-cream transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             aria-label={isPlaying ? "Pause" : "Play"}
           >
             {isPlaying ? (
@@ -135,7 +135,7 @@ export default function MusicPlayer({ tracks }: { tracks: Track[] }) {
             )}
           </button>
 
-          <button onClick={next} className="text-cream-dim hover:text-cream transition-colors" aria-label="Next">
+          <button onClick={next} className="flex h-11 w-11 items-center justify-center text-cream-dim hover:text-cream transition-colors focus-visible:outline-2 focus-visible:outline-accent" aria-label="Next track">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
               <path d="M11 2h2v12h-2V2zM2 2l8.5 6L2 14V2z" />
             </svg>

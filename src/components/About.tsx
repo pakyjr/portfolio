@@ -85,10 +85,10 @@ function SkillRow({
 
 export default function About() {
   return (
-    <section id="about" className="px-6 md:px-12 py-32 md:py-44">
-      <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-16">
+    <section id="about" className="px-6 py-24 md:px-12 md:py-32">
+      <h2 className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-16">
         (about)
-      </p>
+      </h2>
 
       {/* Skills + Photo grid */}
       <motion.div
@@ -110,14 +110,14 @@ export default function About() {
             <SkillRow
               label="Technologies"
               items={skills.technologies}
-              opacity="text-cream/60"
+              opacity="text-cream/75"
             />
           </motion.div>
           <motion.div variants={fadeUp}>
             <SkillRow
               label="Architecture"
               items={skills.concepts}
-              opacity="text-cream/35"
+              opacity="text-cream/60"
             />
           </motion.div>
           <motion.div
@@ -133,7 +133,7 @@ export default function About() {
                     <span className="font-serif text-xl md:text-2xl text-cream relative z-10">
                       {l.language}
                     </span>
-                    <span className="font-mono text-xs text-cream-dim/50">
+                    <span className="font-mono text-xs text-cream-dim/80">
                       {l.level}
                     </span>
                   </div>

@@ -6,10 +6,10 @@ import { education } from "@/lib/data";
 
 export default function EducationSection() {
   return (
-    <section id="education" className="px-6 md:px-12 py-32 md:py-44">
-      <p className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12">
+    <section id="education" className="px-6 py-24 md:px-12 md:py-32">
+      <h2 className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12">
         (education)
-      </p>
+      </h2>
       <motion.div
         variants={staggerContainer}
         initial="hidden"

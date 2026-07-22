@@ -35,6 +35,10 @@ export default function Photography() {
 
   // Auto-scroll
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     function startAuto() {
       autoScrollRef.current = setInterval(() => {
         if (isPaused || !scrollRef.current) return;
@@ -54,9 +58,9 @@ export default function Photography() {
   }, [isPaused, scroll]);
 
   return (
-    <section id="photography" className="py-32 md:py-44">
+    <section id="photography" className="py-24 md:py-32">
       <div className="flex items-center justify-between px-6 md:px-12 mb-12">
-        <motion.p
+        <motion.h2
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -64,13 +68,13 @@ export default function Photography() {
           className="font-mono text-xs text-accent tracking-[0.3em] uppercase"
         >
           (photography)
-        </motion.p>
+        </motion.h2>
 
         {/* Arrows — desktop */}
         <div className="hidden md:flex gap-3">
           <button
             onClick={() => scroll("left")}
-            className="w-10 h-10 border border-cream-dim/30 flex items-center justify-center hover:border-cream hover:text-cream text-cream-dim transition-colors"
+            className="flex h-11 w-11 items-center justify-center border border-cream-dim/30 text-cream-dim transition-colors hover:border-cream hover:text-cream focus-visible:outline-2 focus-visible:outline-accent"
             aria-label="Previous"
           >
             <svg
@@ -86,7 +90,7 @@ export default function Photography() {
           </button>
           <button
             onClick={() => scroll("right")}
-            className="w-10 h-10 border border-cream-dim/30 flex items-center justify-center hover:border-cream hover:text-cream text-cream-dim transition-colors"
+            className="flex h-11 w-11 items-center justify-center border border-cream-dim/30 text-cream-dim transition-colors hover:border-cream hover:text-cream focus-visible:outline-2 focus-visible:outline-accent"
             aria-label="Next"
           >
             <svg

@@ -13,7 +13,8 @@ export default function SectionDivider({ label }: { label?: string }) {
         className="h-px bg-gradient-to-r from-cream-dim/30 via-cream-dim/15 to-transparent origin-left"
       />
       {label && (
-        <motion.h2
+        <motion.p
+          aria-hidden="true"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -21,7 +22,7 @@ export default function SectionDivider({ label }: { label?: string }) {
           className="font-serif text-4xl md:text-6xl text-cream/10 mt-6 tracking-tight select-none"
         >
           {label}
-        </motion.h2>
+        </motion.p>
       )}
     </div>
   );

@@ -1,7 +1,11 @@
 export interface Project {
   number: string;
   name: string;
+  category: string;
   description: string;
+  role?: string;
+  highlights?: string[];
+  featured?: boolean;
   tech: string[];
   image: string;
   link?: string;
@@ -33,8 +37,17 @@ export const projects: Project[] = [
   {
     number: "01",
     name: "CLINEQUAL",
+    category: "Health-tech platform",
     description:
-      "Clinical trial bias analysis platform. 15+ statistical tests, LLM-powered SDTM detection, GDPR/HIPAA compliant multi-tenant architecture. Supporting a \u20AC400K pre-seed round.",
+      "A regulatory-minded platform for finding, measuring, and correcting bias in clinical-trial data — built to make complex statistical evidence understandable and auditable.",
+    role: "Co-founder & lead software engineer",
+    highlights: [
+      "Designed the Python/FastAPI platform across ingestion, analysis, reporting, and shared services.",
+      "Built a hybrid SDTM normalization pipeline with deterministic validation and AI-assisted column detection.",
+      "Implemented tenant isolation, encrypted file storage, role-based access, and immutable audit trails for sensitive health data.",
+      "Created a plugin-based analysis engine covering the first tier of statistical bias checks from a 74-bias research catalog.",
+    ],
+    featured: true,
     tech: ["Python", "FastAPI", "Next.js", "PostgreSQL", "Docker"],
     image: "/images/projects/clinequal.png",
     link: "https://clinequal.com",
@@ -42,8 +55,17 @@ export const projects: Project[] = [
   {
     number: "02",
     name: "IULY",
+    category: "Music utility",
     description:
-      "Cross-platform playlist converter between Apple Music and Spotify using ISRC matching. Strategy pattern for extensible provider support.",
+      "A two-way playlist converter that moves music between Spotify and Apple Music while preserving a clean, provider-independent data model.",
+    role: "Backend architecture & API integrations",
+    highlights: [
+      "Normalized provider responses through adapters, then selected conversion flows through a strategy registry.",
+      "Matched tracks across catalogs using stable music metadata, including ISRC identifiers.",
+      "Handled OAuth sessions, Redis-backed tokens, playlist creation, progress reporting, and partial-match results.",
+      "Added playlist-size tiers, paced requests, and exponential-backoff retries for third-party API limits.",
+    ],
+    featured: true,
     tech: ["TypeScript", "Node.js", "Redis", "React"],
     image: "/images/projects/iuly.png",
     github: "https://github.com/pakyjr",
@@ -51,8 +73,17 @@ export const projects: Project[] = [
   {
     number: "03",
     name: "BEEZZZ",
+    category: "Embedded / IoT",
     description:
-      "ESP32 IoT bee hive monitoring with real-time mic and accelerometer data via MQTT. I2S/I2C sensors, plus a companion iOS app.",
+      "An early-warning beehive monitoring prototype that combines an ESP32 sensing node with a companion iOS experience.",
+    role: "Firmware & iOS prototyping",
+    highlights: [
+      "Captured hive audio from an I2S microphone at 16 kHz / 16-bit for acoustic analysis experiments.",
+      "Built resilient Wi-Fi and MQTT connection handling for the ESP32 monitoring node.",
+      "Integrated an ADXL345 accelerometer path over I2C for motion and vibration experiments.",
+      "Designed the hardware code as small sensor modules so additional environmental inputs can be added later.",
+    ],
+    featured: true,
     tech: ["C++", "ESP32", "MQTT", "SwiftUI"],
     image: "/images/projects/beezzz.jpg",
     github: "https://github.com/pakyjr/Beezz-iOS",
@@ -60,6 +91,7 @@ export const projects: Project[] = [
   {
     number: "04",
     name: "ISWING",
+    category: "iOS experiment",
     description:
       "An iOS app built with SwiftUI exploring motion and interaction patterns.",
     tech: ["Swift", "SwiftUI", "CoreMotion"],
@@ -69,6 +101,7 @@ export const projects: Project[] = [
   {
     number: "05",
     name: "TERMINAL TEXT EDITOR",
+    category: "Systems programming",
     description:
       "A terminal-based text editor written from scratch in C. Raw mode terminal handling, syntax highlighting, and file I/O.",
     tech: ["C", "POSIX", "Terminal"],
@@ -78,6 +111,7 @@ export const projects: Project[] = [
   {
     number: "06",
     name: "CONTAINER C++ LIBRARY",
+    category: "Computer science",
     description:
       "A generic container library implementing core data structures with iterators, following STL conventions.",
     tech: ["C++", "Templates", "Data Structures"],
@@ -91,7 +125,7 @@ export const experiences: Experience[] = [
     role: "Lead Software Engineer & Co-Founder",
     company: "Clinequal",
     location: "Naples, ITA",
-    period: "Jul 2025 \u2014 Present",
+    period: "Jul 2025 \u2014 2026",
     link: "https://clinequal.com",
     highlights: [
       "Architected a regulatory-ready (FDA/EMA) health-tech platform using Python/FastAPI, supporting a \u20AC400K pre-seed round and multi-tenant B2B pilots.",

@@ -37,7 +37,7 @@ function useNameAnimation() {
       }
 
       if (phase === "shrinking") {
-        const allAtInitial = posRef.current.every((p, i) => p <= 1);
+        const allAtInitial = posRef.current.every((p) => p <= 1);
         if (allAtInitial) {
           phaseRef.current = "short";
           tick();
@@ -149,22 +149,16 @@ export default function Hero() {
           className="md:col-span-4 md:col-start-9 flex flex-col justify-end"
         >
           <div className="space-y-5">
-            <p className="font-serif text-lg md:text-xl leading-relaxed text-cream-dim/40">
-              Finishing my CS degree at Federico II, after a year of backend work
-              at IdeaSolutions and the Apple Developer Academy. Right now
-              I&apos;m the sole engineer and co-founder at Clinequal — a startup
-              where I translate domain theory from my PhD co-founders into
-              software that flags bias in clinical trials.
+            <p className="font-serif text-lg md:text-xl leading-relaxed text-cream-dim/80">
+              I&apos;m a software engineer finishing my Computer Science degree in
+              Naples. I previously co-founded and led engineering at Clinequal,
+              building software to detect bias in clinical-trial data.
             </p>
-            <p className="font-serif text-lg md:text-xl leading-relaxed text-cream-dim/40">
-              Building alone has forced me to make every architectural decision
-              myself: what to build, what to cut, how to keep things simple
-              enough to actually ship. I like that pressure, but I also want to
-              work alongside people who are better than me.
-            </p>
-            <p className="font-serif text-lg md:text-xl leading-relaxed text-cream-dim/40">
-              Outside of code, I&apos;m a photographer, a Tango dancer, and a
-              Jazz/Prog-Rock lover. Based in Naples, Italy.
+            <p className="font-serif text-lg md:text-xl leading-relaxed text-cream-dim/80">
+              Before that, I worked on backend systems used by more than 500,000
+              people each month. I&apos;ve also studied at the Apple Developer
+              Academy and in Kraków. Away from code: photography, tango, and
+              too many records.
             </p>
           </div>
         </motion.div>

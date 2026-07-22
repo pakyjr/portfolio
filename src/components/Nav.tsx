@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navItem, staggerContainer } from "@/lib/animations";
 
@@ -14,6 +14,19 @@ const navLinks = [
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsOpen(false);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
 
   const handleClick = (href: string) => {
     setIsOpen(false);
@@ -35,8 +48,10 @@ export default function Nav() {
         </a>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="relative z-50 flex flex-col gap-[6px] w-8 h-8 items-center justify-center"
-          aria-label="Toggle menu"
+          className="relative z-50 flex min-h-11 min-w-11 flex-col items-center justify-center gap-[6px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
+          aria-controls="site-menu"
         >
           <span
             className={`block h-[1px] w-6 bg-cream transition-all duration-300 ${
@@ -54,6 +69,7 @@ export default function Nav() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="site-menu"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -72,7 +88,7 @@ export default function Nav() {
                   key={link.href}
                   variants={navItem}
                   onClick={() => handleClick(link.href)}
-                  className="font-serif text-4xl md:text-6xl text-cream hover:text-accent transition-colors duration-300 tracking-wide"
+                  className="min-h-11 font-serif text-4xl md:text-6xl text-cream hover:text-accent transition-colors duration-300 tracking-wide focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
                 >
                   {link.label}
                 </motion.button>

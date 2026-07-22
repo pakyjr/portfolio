@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { fadeUp } from "@/lib/animations";
 
 interface Album {
@@ -94,6 +94,7 @@ function MarqueeRow({
   speed: number;
 }) {
   const doubled = [...items, ...items];
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <div className="overflow-hidden relative">
@@ -102,7 +103,7 @@ function MarqueeRow({
 
       <motion.div
         className="flex gap-3 md:gap-4 w-max"
-        animate={{
+        animate={shouldReduceMotion ? undefined : {
           x: direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"],
         }}
         transition={{
@@ -139,8 +140,8 @@ function MarqueeRow({
 
 export default function Vinyl() {
   return (
-    <section id="vinyl" className="py-32 md:py-44">
-      <motion.p
+    <section id="vinyl" className="py-24 md:py-32">
+      <motion.h2
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
@@ -148,7 +149,7 @@ export default function Vinyl() {
         className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12 px-6 md:px-12"
       >
         (on rotation)
-      </motion.p>
+      </motion.h2>
 
       <div className="space-y-3 md:space-y-4">
         <MarqueeRow items={row1} direction="left" speed={80} />
