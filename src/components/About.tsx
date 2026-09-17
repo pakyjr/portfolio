@@ -123,7 +123,7 @@ export default function About() {
           </motion.div>
           <motion.div variants={fadeUp}>
             <SkillRow
-              label="Systems / Engineering"
+              label="Engineering"
               items={skills.concepts}
               opacity="text-cream/60"
             />

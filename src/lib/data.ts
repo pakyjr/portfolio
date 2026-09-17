@@ -233,14 +233,7 @@ export const skills = {
     "API Gateway",
     "Docker"
   ],
-  "concepts": [
-    "Distributed Systems",
-    "Data Modeling",
-    "Multi-tenancy",
-    "Event-driven Systems",
-    "Testing",
-    "Clean Architecture"
-  ]
+  "concepts": ["APIs", "Data Modeling", "Distributed Systems", "Testing"]
 };
 
 export const spokenLanguages = [
