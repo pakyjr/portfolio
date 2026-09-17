@@ -21,19 +21,19 @@ export default function Home() {
         <Nav />
         <main>
           <Hero />
-          <SectionDivider label="Work" />
+          <SectionDivider number="01" label="Work" />
           <Projects />
-          <SectionDivider label="Experience" />
+          <SectionDivider number="02" label="Experience" />
           <Experience />
-          <SectionDivider label="Recognition" />
+          <SectionDivider number="03" label="Recognition" />
           <Achievements />
-          <SectionDivider label="About" />
+          <SectionDivider number="04" label="About" />
           <About />
-          <SectionDivider label="Education" />
+          <SectionDivider number="05" label="Education" />
           <EducationSection />
-          <SectionDivider label="On Rotation" />
+          <SectionDivider number="06" label="On Rotation" />
           <Vinyl />
-          <SectionDivider label="Photography" />
+          <SectionDivider number="07" label="Photography" />
           <Photography />
         </main>
         <Footer />

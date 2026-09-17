@@ -5,13 +5,21 @@
 @theme inline {
   --color-bg: #111111;
   --color-bg-raised: #1a1a1a;
+  --color-bg-soft: #151515;
   --color-cream: #f5f0e8;
   --color-cream-dim: #a39e93;
   --color-accent: #c8b89a;
+  --color-copper: #b96f4a;
 
   --font-serif: var(--font-jetbrains), "Courier New", monospace;
   --font-mono: var(--font-jetbrains), "Courier New", monospace;
 }
+
+.text-copper { color: var(--color-copper); }
+.bg-copper { background-color: var(--color-copper); }
+.border-copper { border-color: var(--color-copper); }
+.project-card:hover { border-color: var(--color-copper); }
+.section-rule { background: linear-gradient(to right, color-mix(in srgb, var(--color-copper) 70%, transparent), color-mix(in srgb, var(--color-cream-dim) 20%, transparent), transparent); }
 
 html {
   scroll-behavior: smooth;

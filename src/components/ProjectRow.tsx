@@ -43,6 +43,24 @@ const projectTechIcons: Record<string, IconType> = {
   Terminal: FaTerminal,
 };
 
+const projectProof: Record<string, { value: string; label: string }[]> = {
+  CLINEQUAL: [
+    { value: "103", label: "automated tests" },
+    { value: "15+", label: "statistical tests" },
+    { value: "RLS", label: "tenant isolation" },
+  ],
+  "PLAYLIST CONVERTER": [
+    { value: "2-way", label: "provider conversion" },
+    { value: "ISRC", label: "primary matching" },
+    { value: "SSE", label: "live progress" },
+  ],
+  "BEEHIVE MONITORING SYSTEM": [
+    { value: "ESP32", label: "sensing node" },
+    { value: "MQTT", label: "telemetry" },
+    { value: "SwiftUI", label: "monitoring app" },
+  ],
+};
+
 function TechTag({ name }: { name: string }) {
   const Icon = projectTechIcons[name] ?? FaCode;
 
@@ -75,9 +93,9 @@ export default function ProjectRow({ project }: { project: Project }) {
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="group relative border-y border-cream-dim/20 py-4 md:py-5"
+        className={`project-card group relative border border-cream-dim/20 bg-bg-raised/20 p-4 transition-colors duration-300 md:p-6 ${project.name === "CLINEQUAL" ? "md:col-span-2" : ""}`}
       >
-        <div className="relative z-10 grid gap-4 lg:grid-cols-[minmax(13rem,0.42fr)_minmax(0,1fr)] lg:gap-8">
+        <div className="relative z-10 grid gap-4 lg:grid-cols-[minmax(12rem,0.34fr)_minmax(0,1fr)] lg:gap-8">
           <div>
             <span className="font-serif text-sm text-cream-dim">
               {project.number}
@@ -99,6 +117,17 @@ export default function ProjectRow({ project }: { project: Project }) {
             <p className="mt-3 max-w-2xl font-mono text-sm sm:text-base leading-7 text-cream/90">
               {project.description}
             </p>
+
+            {projectProof[project.name] && (
+              <div className="mt-4 grid grid-cols-3 gap-3 border-y border-cream-dim/15 py-3">
+                {projectProof[project.name].map((proof) => (
+                  <div key={proof.label}>
+                    <p className="font-serif text-xl text-copper md:text-2xl">{proof.value}</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-cream-dim">{proof.label}</p>
+                  </div>
+                ))}
+              </div>
+            )}
 
             {project.highlights && (
               <ul className="mt-3 grid gap-2" aria-label={`${project.name} highlights`}>
@@ -157,40 +186,44 @@ export default function ProjectRow({ project }: { project: Project }) {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative border-b border-cream-dim/20 py-4 md:py-5"
+      className="project-card group relative border border-cream-dim/20 bg-bg-raised/20 p-4 transition-colors duration-300 md:p-5"
     >
-      <div className="relative z-10 flex items-baseline justify-between gap-4">
-        <div className="flex items-baseline gap-4 md:gap-8 min-w-0">
-          <span className="font-serif text-sm md:text-base text-cream-dim shrink-0">
-            {project.number}
-          </span>
-          <div>
-            <p className="mb-1 font-mono text-xs uppercase tracking-[0.18em] text-accent">{project.category}</p>
-            <h3 className="font-serif text-2xl md:text-5xl lg:text-6xl text-cream tracking-tight group-hover:text-accent transition-colors duration-300">
-              {project.name}
-            </h3>
+      <div className="relative z-10">
+        <div>
+          <div className="flex items-baseline justify-between gap-4">
+            <div className="flex items-baseline gap-4 md:gap-8 min-w-0">
+              <span className="font-serif text-sm md:text-base text-cream-dim shrink-0">
+                {project.number}
+              </span>
+              <div>
+                <p className="mb-1 font-mono text-xs uppercase tracking-[0.18em] text-accent">{project.category}</p>
+                <h3 className="font-serif text-2xl md:text-5xl lg:text-6xl text-cream tracking-tight group-hover:text-accent transition-colors duration-300">
+                  {project.name}
+                </h3>
+              </div>
+            </div>
+            {link && (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center font-mono text-xs md:text-sm text-cream-dim hover:text-cream transition-colors tracking-[0.15em] uppercase shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+              >
+                VIEW
+              </a>
+            )}
+          </div>
+          <p className="mt-3 font-mono text-xs md:text-sm leading-6 text-cream-dim max-w-2xl pl-8 md:pl-16">
+            {project.description}
+          </p>
+
+          <div className="mt-3 flex flex-wrap gap-2 pl-8 md:pl-16">
+            {project.tech.map((tech) => (
+              <TechTag key={tech} name={tech} />
+            ))}
           </div>
         </div>
-        {link && (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-11 items-center font-mono text-xs md:text-sm text-cream-dim hover:text-cream transition-colors tracking-[0.15em] uppercase shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-          >
-            VIEW
-          </a>
-        )}
-      </div>
 
-      <p className="relative z-10 mt-3 font-mono text-xs md:text-sm leading-6 text-cream-dim max-w-2xl pl-8 md:pl-16">
-        {project.description}
-      </p>
-
-      <div className="relative z-10 mt-3 flex flex-wrap gap-2 pl-8 md:pl-16">
-        {project.tech.map((tech) => (
-          <TechTag key={tech} name={tech} />
-        ))}
       </div>
 
       {/* Hover image — desktop only */}

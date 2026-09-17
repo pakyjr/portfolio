@@ -85,7 +85,7 @@ function SkillRow({
 
 export default function About() {
   return (
-    <section id="about" className="px-6 py-6 md:px-12 md:py-9">
+    <section id="about" className="bg-bg-soft/35 px-6 py-6 md:px-12 md:py-9">
       <h2 className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-4">
         (about)
       </h2>
