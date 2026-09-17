@@ -118,6 +118,7 @@ function MarqueeRow({
         {doubled.map((album, i) => (
           <div
             key={`${album.slug}-${i}`}
+            aria-hidden={i >= items.length ? true : undefined}
             className="flex-shrink-0 group cursor-default"
           >
             <div className="flex items-center gap-3 px-3 py-2 md:px-4 md:py-2.5 border border-cream-dim/10 hover:border-cream-dim/30 transition-colors duration-300">

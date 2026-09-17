@@ -10,6 +10,7 @@ export default function Footer() {
             <p className="font-mono text-xs text-cream-dim tracking-[0.3em] uppercase">
               (get in touch)
             </p>
+            <h2 className="font-mono text-2xl md:text-3xl leading-tight tracking-tight text-cream">Let’s build something interesting.</h2>
             <a
               href={`mailto:${socials.email}`}
               className="inline-flex min-h-11 items-center gap-3 font-mono text-base text-cream transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent md:text-xl"
@@ -20,6 +21,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <a href="/pasquale-junior-monto-cv.pdf" download className="inline-flex min-h-11 items-center gap-2 font-mono text-sm text-accent hover:text-cream transition-colors tracking-wide uppercase focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">Download CV <span aria-hidden="true">↓</span></a>
             <a
               href={socials.github}
               target="_blank"

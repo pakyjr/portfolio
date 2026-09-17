@@ -5,7 +5,10 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/animations";
 
-const photos = [
+const photos: { src: string; orientation: "portrait" | "landscape"; alt?: string }[] = [
+  { src: "warm-light-portrait.webp", orientation: "portrait", alt: "Portrait against warm orange and yellow light" },
+  { src: "dj-long-exposure.webp", orientation: "portrait", alt: "DJ and mixing decks captured with blue and red light trails" },
+  { src: "garden-portrait.webp", orientation: "portrait", alt: "Night portrait framed by flowering garden foliage" },
   { src: "CROATIA-266.jpg", orientation: "portrait" as const },
   { src: "EDO-06.jpg", orientation: "portrait" as const },
   { src: "grotta-057.jpg", orientation: "portrait" as const },
@@ -107,6 +110,13 @@ export default function Photography() {
         </div>
       </div>
 
+      <div className="mb-4 px-6 md:px-12 flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
+        <p className="font-mono text-sm leading-relaxed text-cream-dim">Outside engineering: events, portraits, and documentary-style photography.</p>
+        <a href="https://pjrmonto.myportfolio.com/" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 font-mono text-sm text-accent underline underline-offset-4 transition-colors hover:text-cream focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
+          Photography portfolio <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
       {/* Desktop: carousel */}
       <div
         ref={scrollRef}
@@ -138,7 +148,7 @@ export default function Photography() {
           >
             <Image
               src={`/images/photography/${photo.src}`}
-              alt=""
+              alt={photo.alt ?? ""}
               fill
               className="object-cover"
               sizes={photo.orientation === "portrait" ? "33vw" : "70vw"}
@@ -160,7 +170,7 @@ export default function Photography() {
           >
             <Image
               src={`/images/photography/${photo.src}`}
-              alt=""
+              alt={photo.alt ?? ""}
               fill
               className="object-cover"
               sizes="100vw"

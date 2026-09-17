@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Pasquale Junior Montò",
   description:
-    "Software engineer in Naples. Previously co-founder and engineering lead at Clinequal. Building tools across clinical data, IoT, and the web.",
+    "Backend-focused software engineer in Naples. Production systems, product engineering, and startup technical ownership. Co-founder of Clinequal.",
   metadataBase: new URL("https://pakyjr.dev"),
   icons: {
     icon: "/icon.png",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pasquale Junior Montò",
     description:
-      "Software engineer in Naples. Previously co-founder and engineering lead at Clinequal. Building tools across clinical data, IoT, and the web.",
+      "Backend-focused software engineer in Naples. Production systems, product engineering, and startup technical ownership. Co-founder of Clinequal.",
     type: "website",
     images: [{ url: "/icon.png", width: 512, height: 512 }],
   },

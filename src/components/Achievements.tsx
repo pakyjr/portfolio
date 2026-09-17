@@ -24,7 +24,9 @@ export default function Achievements() {
             className="border-t border-cream-dim/20 pt-6"
           >
             <h3 className="font-serif text-xl md:text-2xl text-cream mb-3">
-              {a.title}
+              {a.link ? (
+                <a href={a.link} target="_blank" rel="noopener noreferrer" className="underline decoration-cream-dim/40 underline-offset-4 transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">{a.title} <span aria-hidden="true">↗</span></a>
+              ) : a.title}
             </h3>
             <p className="font-mono text-sm text-cream-dim leading-relaxed">
               {a.description}

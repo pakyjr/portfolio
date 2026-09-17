@@ -57,8 +57,8 @@ function SkillRow({
         {items.map((name, i) => {
           const Icon = techIcons[name];
           return (
-            <span key={name} className="inline-flex items-center">
-              <span className="inline-flex items-center gap-1.5">
+            <span key={name} className="inline-flex max-w-full items-center">
+              <span className="inline-flex min-w-0 items-center gap-1.5">
                 {Icon && (
                   <Icon
                     className={`inline-block text-lg md:text-2xl ${opacity} opacity-50`}
@@ -90,7 +90,7 @@ export default function About() {
         (about)
       </h2>
 
-      <p className="mb-4 max-w-2xl font-serif text-xl leading-relaxed text-cream-dim">I’m finishing my Computer Science degree in Naples, with time spent at the Apple Developer Academy and studying in Kraków. Away from code: photography, tango, and too many records.</p>
+      <p className="mb-4 max-w-2xl font-serif text-xl leading-relaxed text-cream-dim">I’m interested in backend engineering, distributed systems, developer infrastructure, and early-stage products where engineers work close to users and business decisions. I’ve studied at the Apple Developer Academy and Jagiellonian University in Kraków. Away from code: photography, tango, and too many records.</p>
       {/* Skills + Photo grid */}
       <motion.div
         variants={staggerContainer}
@@ -109,14 +109,21 @@ export default function About() {
           </motion.div>
           <motion.div variants={fadeUp}>
             <SkillRow
-              label="Technologies"
-              items={skills.technologies}
+              label="Backend & Data"
+              items={skills.backend}
               opacity="text-cream/75"
             />
           </motion.div>
           <motion.div variants={fadeUp}>
             <SkillRow
-              label="Architecture"
+              label="Cloud & Infrastructure"
+              items={skills.infrastructure}
+              opacity="text-cream/75"
+            />
+          </motion.div>
+          <motion.div variants={fadeUp}>
+            <SkillRow
+              label="Systems / Engineering"
               items={skills.concepts}
               opacity="text-cream/60"
             />

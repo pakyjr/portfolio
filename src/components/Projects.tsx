@@ -21,8 +21,8 @@ export default function Projects() {
           </h2>
         </div>
         <p className="font-mono text-sm md:text-base leading-relaxed text-cream-dim">
-          A closer look at the systems I shaped, the constraints behind them,
-          and the engineering decisions that made them work.
+          A selection of systems I’ve built, the constraints behind them,
+          and the technical decisions that shaped them.
         </p>
       </div>
       <motion.div

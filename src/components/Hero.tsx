@@ -151,11 +151,10 @@ export default function Hero() {
         >
           <div className="space-y-3">
             <p className="font-mono text-lg lg:text-xl leading-relaxed text-cream">
-              I build software that turns complex problems into useful tools.
+              Software engineer focused on backend systems, product engineering, and technical ownership.
             </p>
             <p className="font-mono text-sm lg:text-base leading-7 text-cream-dim">
-              Previously co-founder and engineering lead at Clinequal.
-              Before that, I worked on backend systems serving 500,000+ people each month.
+              I’m finishing my Computer Science degree in Naples. I’ve built production backend systems and co-founded Clinequal as its sole technical founder, owning architecture, backend, infrastructure, and product engineering.
             </p>
             <div className="flex flex-wrap gap-3 pt-3">
               <a href="#projects" className="inline-flex min-h-12 items-center gap-3 bg-accent px-5 py-3 font-mono text-sm text-bg transition-colors hover:bg-cream focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">View work <span aria-hidden="true">↓</span></a>
