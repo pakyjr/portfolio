@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { serif, mono } from "@/lib/fonts";
+import { mono } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Pasquale Junior Montò",
   description:
-    "Software Engineer & Co-founder at Clinequal. Building tools across clinical data, IoT, and the web.",
+    "Backend-focused software engineer in Naples. Production systems, product engineering, and startup technical ownership. Co-founder of Clinequal.",
   metadataBase: new URL("https://pakyjr.dev"),
   icons: {
     icon: "/icon.png",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pasquale Junior Montò",
     description:
-      "Software Engineer & Co-founder at Clinequal. Building tools across clinical data, IoT, and the web.",
+      "Backend-focused software engineer in Naples. Production systems, product engineering, and startup technical ownership. Co-founder of Clinequal.",
     type: "website",
     images: [{ url: "/icon.png", width: 512, height: 512 }],
   },
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${serif.variable} ${mono.variable}`}>
+    <html lang="en" className={mono.variable}>
       <body>{children}</body>
     </html>
   );

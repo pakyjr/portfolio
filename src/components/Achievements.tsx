@@ -6,8 +6,8 @@ import { achievements } from "@/lib/data";
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="px-6 py-24 md:px-12 md:py-32">
-      <h2 className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12">
+    <section id="achievements" className="px-6 py-6 md:px-12 md:py-9">
+      <h2 className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-4">
         (achievements)
       </h2>
       <motion.div
@@ -24,7 +24,9 @@ export default function Achievements() {
             className="border-t border-cream-dim/20 pt-6"
           >
             <h3 className="font-serif text-xl md:text-2xl text-cream mb-3">
-              {a.title}
+              {a.link ? (
+                <a href={a.link} target="_blank" rel="noopener noreferrer" className="underline decoration-cream-dim/40 underline-offset-4 transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">{a.title} <span aria-hidden="true">↗</span></a>
+              ) : a.title}
             </h3>
             <p className="font-mono text-sm text-cream-dim leading-relaxed">
               {a.description}

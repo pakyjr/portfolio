@@ -6,8 +6,8 @@ import { experiences } from "@/lib/data";
 
 export default function Experience() {
   return (
-    <section id="experience" className="px-6 py-24 md:px-12 md:py-32">
-      <h2 className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12">
+    <section id="experience" className="px-6 py-6 md:px-12 md:py-9">
+      <h2 className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-4">
         (experience)
       </h2>
       <motion.div
@@ -15,7 +15,7 @@ export default function Experience() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="space-y-16"
+        className="space-y-8"
       >
         {experiences.map((exp) => (
           <motion.div key={exp.company} variants={fadeUp}>
@@ -32,7 +32,7 @@ export default function Experience() {
                 {exp.location} &middot; {exp.period}
               </p>
             </div>
-            <ul className="space-y-3 mt-6">
+            <ul className="space-y-2 mt-4">
               {exp.highlights.map((h, i) => (
                 <li
                   key={i}

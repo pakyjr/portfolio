@@ -57,8 +57,8 @@ function SkillRow({
         {items.map((name, i) => {
           const Icon = techIcons[name];
           return (
-            <span key={name} className="inline-flex items-center">
-              <span className="inline-flex items-center gap-1.5">
+            <span key={name} className="inline-flex max-w-full items-center">
+              <span className="inline-flex min-w-0 items-center gap-1.5">
                 {Icon && (
                   <Icon
                     className={`inline-block text-lg md:text-2xl ${opacity} opacity-50`}
@@ -85,20 +85,21 @@ function SkillRow({
 
 export default function About() {
   return (
-    <section id="about" className="px-6 py-24 md:px-12 md:py-32">
-      <h2 className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-16">
+    <section id="about" className="px-6 py-6 md:px-12 md:py-9">
+      <h2 className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-4">
         (about)
       </h2>
 
+      <p className="mb-4 max-w-2xl font-serif text-xl leading-relaxed text-cream-dim">I’m interested in backend engineering, distributed systems, developer infrastructure, and early-stage products where engineers work close to users and business decisions. I’ve studied at the Apple Developer Academy and Jagiellonian University in Kraków. Away from code: photography, tango, and too many records.</p>
       {/* Skills + Photo grid */}
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-stretch"
+        className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-stretch"
       >
-        <div className="md:col-span-7 flex flex-col justify-between self-stretch">
+        <div className="md:col-span-7 flex flex-col gap-4 justify-between self-stretch">
           <motion.div variants={fadeUp}>
             <SkillRow
               label="Languages"
@@ -108,14 +109,21 @@ export default function About() {
           </motion.div>
           <motion.div variants={fadeUp}>
             <SkillRow
-              label="Technologies"
-              items={skills.technologies}
+              label="Backend & Data"
+              items={skills.backend}
               opacity="text-cream/75"
             />
           </motion.div>
           <motion.div variants={fadeUp}>
             <SkillRow
-              label="Architecture"
+              label="Cloud & Infrastructure"
+              items={skills.infrastructure}
+              opacity="text-cream/75"
+            />
+          </motion.div>
+          <motion.div variants={fadeUp}>
+            <SkillRow
+              label="Systems / Engineering"
               items={skills.concepts}
               opacity="text-cream/60"
             />
@@ -133,7 +141,7 @@ export default function About() {
                     <span className="font-serif text-xl md:text-2xl text-cream relative z-10">
                       {l.language}
                     </span>
-                    <span className="font-mono text-xs text-cream-dim/80">
+                    <span className="font-mono text-xs text-cream-dim">
                       {l.level}
                     </span>
                   </div>

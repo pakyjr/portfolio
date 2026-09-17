@@ -24,6 +24,7 @@ export interface Experience {
 export interface Achievement {
   title: string;
   description: string;
+  link?: string;
 }
 
 export interface Education {
@@ -35,184 +36,211 @@ export interface Education {
 
 export const projects: Project[] = [
   {
-    number: "01",
-    name: "CLINEQUAL",
-    category: "Health-tech platform",
-    description:
-      "A regulatory-minded platform for finding, measuring, and correcting bias in clinical-trial data — built to make complex statistical evidence understandable and auditable.",
-    role: "Co-founder & lead software engineer",
-    highlights: [
-      "Designed the Python/FastAPI platform across ingestion, analysis, reporting, and shared services.",
-      "Built a hybrid SDTM normalization pipeline with deterministic validation and AI-assisted column detection.",
-      "Implemented tenant isolation, encrypted file storage, role-based access, and immutable audit trails for sensitive health data.",
-      "Created a plugin-based analysis engine covering the first tier of statistical bias checks from a 74-bias research catalog.",
+    "number": "01",
+    "name": "CLINEQUAL",
+    "category": "Clinical-trial analysis",
+    "description": "A clinical-trial analysis platform for detecting and quantifying potential sources of bias, with privacy-preserving ingestion and auditable statistical analysis.",
+    "role": "Co-founder & Sole Technical Founder",
+    "highlights": [
+      "Architected a Python/FastAPI modular monolith with independently testable authentication, ingestion, analysis, persistence, and reporting modules.",
+      "Built CSV, Excel, JSON, and SAS XPT ingestion with local-LLM-assisted SDTM mapping of column metadata, keeping patient rows out of model prompts.",
+      "Implemented analyzers for representation, treatment balance, recruitment, attrition, survivorship, and consent withdrawal using statistical tests and diversity measures.",
+      "Designed tenant isolation with PostgreSQL RLS, JWT/RBAC, Redis rate limiting, S3-compatible storage, and audit logs.",
+      "Validated core ingestion and analysis workflows with 103 automated tests."
     ],
-    featured: true,
-    tech: ["Python", "FastAPI", "Next.js", "PostgreSQL", "Docker"],
-    image: "/images/projects/clinequal.png",
-    link: "https://clinequal.com",
-  },
-  {
-    number: "02",
-    name: "IULY",
-    category: "Music utility",
-    description:
-      "A two-way playlist converter that moves music between Spotify and Apple Music while preserving a clean, provider-independent data model.",
-    role: "Backend architecture & API integrations",
-    highlights: [
-      "Normalized provider responses through adapters, then selected conversion flows through a strategy registry.",
-      "Matched tracks across catalogs using stable music metadata, including ISRC identifiers.",
-      "Handled OAuth sessions, Redis-backed tokens, playlist creation, progress reporting, and partial-match results.",
-      "Added playlist-size tiers, paced requests, and exponential-backoff retries for third-party API limits.",
+    "featured": true,
+    "tech": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Redis",
+      "AWS",
+      "Docker"
     ],
-    featured: true,
-    tech: ["TypeScript", "Node.js", "Redis", "React"],
-    image: "/images/projects/iuly.png",
-    github: "https://github.com/pakyjr",
+    "image": "/images/projects/clinequal.png"
   },
   {
-    number: "03",
-    name: "BEEZZZ",
-    category: "Embedded / IoT",
-    description:
-      "An early-warning beehive monitoring prototype that combines an ESP32 sensing node with a companion iOS experience.",
-    role: "Firmware & iOS prototyping",
-    highlights: [
-      "Captured hive audio from an I2S microphone at 16 kHz / 16-bit for acoustic analysis experiments.",
-      "Built resilient Wi-Fi and MQTT connection handling for the ESP32 monitoring node.",
-      "Integrated an ADXL345 accelerometer path over I2C for motion and vibration experiments.",
-      "Designed the hardware code as small sensor modules so additional environmental inputs can be added later.",
+    "number": "02",
+    "name": "PLAYLIST CONVERTER",
+    "category": "Music utility",
+    "description": "A Spotify ↔ Apple Music playlist converter built around provider-independent models and resilient third-party API integrations.",
+    "role": "Backend architecture & API integrations",
+    "highlights": [
+      "Normalized Spotify and Apple Music responses through provider adapters and a shared internal model.",
+      "Matched tracks through ISRC lookup with metadata-similarity fallback.",
+      "Integrated Spotify OAuth, Apple Music authentication, Redis-backed tokens, and live conversion progress through Server-Sent Events.",
+      "Handled partial matches, pagination, request pacing, and exponential-backoff retries."
     ],
-    featured: true,
-    tech: ["C++", "ESP32", "MQTT", "SwiftUI"],
-    image: "/images/projects/beezzz.jpg",
-    github: "https://github.com/pakyjr/Beezz-iOS",
+    "featured": true,
+    "tech": [
+      "TypeScript",
+      "Node.js",
+      "Redis"
+    ],
+    "image": "/images/projects/iuly.png",
+    "github": "https://github.com/pakyjr/playlist-converter"
   },
   {
-    number: "04",
-    name: "ISWING",
-    category: "iOS experiment",
-    description:
-      "An iOS app built with SwiftUI exploring motion and interaction patterns.",
-    tech: ["Swift", "SwiftUI", "CoreMotion"],
-    image: "/images/projects/iSwing.png",
-    github: "https://github.com/pakyjr/iSwing",
+    "number": "03",
+    "name": "BEEHIVE MONITORING SYSTEM",
+    "category": "Embedded / IoT",
+    "description": "An IoT prototype for remote hive monitoring and exploring acoustic and vibration signals associated with colony health and swarming.",
+    "role": "Sensing architecture & cross-functional team lead",
+    "highlights": [
+      "Led the prototype from beekeeper interviews and academic research to sensing architecture and a SwiftUI monitoring app.",
+      "Built an ESP32 node with an I2S microphone and ADXL345 accelerometer for acoustic and vibration capture.",
+      "Explored local frequency-domain processing and streamed processed telemetry over MQTT to a backend.",
+      "Organized embedded code into modular sensor components for additional environmental inputs."
+    ],
+    "featured": true,
+    "tech": [
+      "C++",
+      "ESP32",
+      "MQTT",
+      "SwiftUI"
+    ],
+    "image": "/images/projects/beezzz.jpg",
+    "github": "https://github.com/pakyjr/noizee"
   },
   {
-    number: "05",
-    name: "TERMINAL TEXT EDITOR",
-    category: "Systems programming",
-    description:
-      "A terminal-based text editor written from scratch in C. Raw mode terminal handling, syntax highlighting, and file I/O.",
-    tech: ["C", "POSIX", "Terminal"],
-    image: "/images/projects/txted.png",
-    github: "https://github.com/pakyjr/text_editor",
+    "number": "04",
+    "name": "ISWING",
+    "category": "Golf swing motion prototype",
+    "description": "An iOS motion prototype using SwiftUI and CoreMotion to explore golf-swing motion capture and visualization.",
+    "tech": [
+      "Swift",
+      "SwiftUI",
+      "CoreMotion"
+    ],
+    "image": "/images/projects/iSwing.png",
+    "github": "https://github.com/pakyjr/iSwing"
   },
   {
-    number: "06",
-    name: "CONTAINER C++ LIBRARY",
-    category: "Computer science",
-    description:
-      "A generic container library implementing core data structures with iterators, following STL conventions.",
-    tech: ["C++", "Templates", "Data Structures"],
-    image: "",
-    github: "https://github.com/pakyjr/LASDPrj",
+    "number": "05",
+    "name": "TERMINAL TEXT EDITOR",
+    "category": "Systems programming",
+    "description": "A terminal text editor written from scratch in C, with raw terminal mode, cursor navigation, file I/O, incremental rendering, and syntax highlighting using POSIX APIs.",
+    "tech": [
+      "C",
+      "POSIX",
+      "Terminal"
+    ],
+    "image": "/images/projects/txted.png",
+    "github": "https://github.com/pakyjr/text_editor"
   },
+  {
+    "number": "06",
+    "name": "CONTAINER C++ LIBRARY",
+    "category": "Data structures",
+    "description": "A generic C++ data-structures library with reusable containers, iterators, templates, and STL-inspired interfaces.",
+    "tech": [
+      "C++",
+      "Templates",
+      "Data Structures"
+    ],
+    "image": "",
+    "github": "https://github.com/pakyjr/LASDPrj"
+  }
 ];
 
 export const experiences: Experience[] = [
   {
-    role: "Lead Software Engineer & Co-Founder",
-    company: "Clinequal",
-    location: "Naples, ITA",
-    period: "Jul 2025 \u2014 2026",
-    link: "https://clinequal.com",
-    highlights: [
-      "Architected a regulatory-ready (FDA/EMA) health-tech platform using Python/FastAPI, supporting a \u20AC400K pre-seed round and multi-tenant B2B pilots.",
-      "Built an AI-powered ingestion pipeline utilizing a local LLM (Phi-3) to map clinical data to CDISC SDTM standards with strict PHI privacy.",
-      "Developed a plugin-based statistical engine with 15+ bias tests paired with an XAI layer for regulatory-aligned narratives.",
-      "Represented the company at Tech Arena Stockholm, translating complex AI architecture to VC funds and investment banks.",
-    ],
+    "role": "Co-Founder & Sole Technical Founder",
+    "company": "Clinequal",
+    "location": "Naples, ITA",
+    "period": "Jul 2025 — Present",
+    "highlights": [
+      "Owned technical direction across architecture, backend development, infrastructure, testing, and product demos.",
+      "Worked with a biostatistics co-founder to translate clinical-trial methodology into software and analysis workflows.",
+      "Balanced fast iteration with modularity, tenant isolation, and testability under startup constraints.",
+      "Represented the technical product in partner and investor conversations, competitions, and Tech Arena Stockholm."
+    ]
   },
   {
-    role: "Software Engineer",
-    company: "IdeaSolutions",
-    location: "Naples, ITA",
-    period: "Mar 2023 \u2014 Dec 2023",
-    highlights: [
-      "Contributed to SuperGuidaTV (500,000+ monthly active users), integrating core features like user watchlists.",
-      "Set up serverless AWS DynamoDB, implemented Data Access Layer, and used SQS for background tasks.",
-      "Developed an automatic logging system following clean architecture for full traceability.",
-    ],
-  },
+    "role": "Software Engineer",
+    "company": "IdeaSolutions",
+    "location": "Naples, ITA",
+    "period": "Mar 2023 — Dec 2023",
+    "highlights": [
+      "Developed TypeScript/Node.js backend services for SuperGuidaTV, a production streaming guide serving 500,000+ monthly users.",
+      "Built public/private watchlists with follows, imports, follower-based ranking, pagination, and asynchronous aggregation through SQS-triggered Lambda functions.",
+      "Implemented property-level audit logs for nested content changes, recording operators, timestamps, entity hierarchy, and modified fields in DynamoDB.",
+      "Integrated content changes with Amazon Personalize, selectively synchronizing metadata and marking deleted titles unavailable.",
+      "Delivered production services across AWS Lambda, DynamoDB, SQS, S3, API Gateway, and Step Functions."
+    ]
+  }
 ];
 
 export const achievements: Achievement[] = [
   {
-    title: "StartCup Campania Winner",
-    description:
-      "Regional startup competition, advancing to the PNI national competition in Ferrara.",
+    "title": "StartCup Campania — Winner",
+    "description": "Won the regional startup competition with Clinequal and advanced to the national PNI competition in Ferrara."
   },
   {
-    title: "That\u2019s a Hackathon Winner",
-    description: "Hackathon promoted by the US Embassy in Naples.",
+    "title": "That’s a Hackathon — Winner",
+    "description": "Winner of the hackathon promoted by the US Embassy in Naples."
   },
   {
-    title: "Press Coverage \u2014 Il Mattino",
-    description:
-      "Clinequal featured for innovation in healthcare AI and clinical trial analysis.",
-  },
+    "title": "Il Mattino — Press Coverage",
+    "description": "Clinequal featured for its work on bias in clinical-trial analysis.",
+    "link": "https://www.ilmattino.it/en/bias_free_clinical_trials_a_new_era-9170860.html"
+  }
 ];
 
 export const education: Education[] = [
   {
-    institution: "Apple Developer Academy",
-    degree: "iOS Development",
-    period: "Sep 2024 \u2014 Jun 2025",
-    detail:
-      "Swift/SwiftUI, cross-functional collaboration, Agile, business-oriented approach.",
+    "institution": "Apple Developer Academy",
+    "degree": "Product Development & iOS Engineering",
+    "period": "Sep 2024 — Jun 2025",
+    "detail": "One-year program in rapid prototyping, user research, product thinking, iOS development, and multidisciplinary teamwork. Swift · SwiftUI · Hardware/IoT prototyping."
   },
   {
-    institution: "Universit\u00E0 di Napoli Federico II",
-    degree: "B.Sc. Computer Science",
-    period: "Sep 2023 \u2014 Sep 2026",
+    "institution": "Università di Napoli Federico II",
+    "degree": "B.Sc. Computer Science — In progress",
+    "period": "Sep 2023 — Expected 2026"
   },
   {
-    institution: "Jagiellonian University Krak\u00F3w",
-    degree: "ERASMUS+ Exchange",
-    period: "Oct 2025 \u2014 Feb 2026",
-    detail:
-      "Distributed Systems, Computer Networks, Formal Language Theory, Design Patterns.",
-  },
+    "institution": "Jagiellonian University Kraków",
+    "degree": "Erasmus+ Exchange — Computer Science",
+    "period": "Oct 2025 — Feb 2026",
+    "detail": "Distributed Systems · Computer Networks · Formal Languages & Automata · Design Patterns."
+  }
 ];
 
 export const skills = {
-  languages: [
-    "TypeScript",
-    "Swift",
-    "Go",
+  "languages": [
     "Python",
+    "TypeScript",
     "C/C++",
+    "Swift",
     "Java",
-    "SQL",
+    "Go",
+    "SQL"
   ],
-  technologies: [
+  "backend": [
     "Node.js",
     "FastAPI",
-    "Next.js",
     "PostgreSQL",
     "DynamoDB",
     "Redis",
-    "Docker",
-    "AWS",
+    "REST APIs"
   ],
-  concepts: [
-    "Microservices",
-    "REST APIs",
+  "infrastructure": [
+    "AWS Lambda",
+    "SQS",
+    "Step Functions",
+    "S3",
+    "API Gateway",
+    "Docker"
+  ],
+  "concepts": [
     "Distributed Systems",
-    "Clean Architecture",
-    "Agile",
-  ],
+    "Data Modeling",
+    "Multi-tenancy",
+    "Event-driven Systems",
+    "Testing",
+    "Clean Architecture"
+  ]
 };
 
 export const spokenLanguages = [
