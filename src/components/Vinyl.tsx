@@ -126,7 +126,7 @@ function MarqueeRow({
                 <span className="font-serif text-sm md:text-base text-cream whitespace-nowrap group-hover:text-accent transition-colors duration-300">
                   {album.title}
                 </span>
-                <span className="font-mono text-[10px] md:text-xs text-cream-dim/40 whitespace-nowrap">
+                <span className="font-mono text-xs md:text-sm text-cream-dim whitespace-nowrap">
                   {album.artist}
                 </span>
               </div>
@@ -140,13 +140,13 @@ function MarqueeRow({
 
 export default function Vinyl() {
   return (
-    <section id="vinyl" className="py-24 md:py-32">
+    <section id="vinyl" className="py-6 md:py-9">
       <motion.h2
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12 px-6 md:px-12"
+        className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-4 px-6 md:px-12"
       >
         (on rotation)
       </motion.h2>

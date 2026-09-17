@@ -6,8 +6,8 @@ import { education } from "@/lib/data";
 
 export default function EducationSection() {
   return (
-    <section id="education" className="px-6 py-24 md:px-12 md:py-32">
-      <h2 className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-12">
+    <section id="education" className="px-6 py-6 md:px-12 md:py-9">
+      <h2 className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-4">
         (education)
       </h2>
       <motion.div
@@ -15,7 +15,7 @@ export default function EducationSection() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="space-y-10"
+        className="space-y-6"
       >
         {education.map((edu) => (
           <motion.div
@@ -33,7 +33,7 @@ export default function EducationSection() {
               {edu.degree}
             </p>
             {edu.detail && (
-              <p className="font-mono text-xs text-cream/50 mt-2 leading-relaxed">
+              <p className="font-mono text-sm text-cream-dim mt-2 leading-relaxed">
                 {edu.detail}
               </p>
             )}

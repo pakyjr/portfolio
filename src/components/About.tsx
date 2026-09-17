@@ -85,20 +85,21 @@ function SkillRow({
 
 export default function About() {
   return (
-    <section id="about" className="px-6 py-24 md:px-12 md:py-32">
-      <h2 className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-16">
+    <section id="about" className="px-6 py-6 md:px-12 md:py-9">
+      <h2 className="font-mono text-xs text-accent tracking-[0.3em] uppercase mb-4">
         (about)
       </h2>
 
+      <p className="mb-4 max-w-2xl font-serif text-xl leading-relaxed text-cream-dim">I’m finishing my Computer Science degree in Naples, with time spent at the Apple Developer Academy and studying in Kraków. Away from code: photography, tango, and too many records.</p>
       {/* Skills + Photo grid */}
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-stretch"
+        className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-stretch"
       >
-        <div className="md:col-span-7 flex flex-col justify-between self-stretch">
+        <div className="md:col-span-7 flex flex-col gap-4 justify-between self-stretch">
           <motion.div variants={fadeUp}>
             <SkillRow
               label="Languages"
@@ -133,7 +134,7 @@ export default function About() {
                     <span className="font-serif text-xl md:text-2xl text-cream relative z-10">
                       {l.language}
                     </span>
-                    <span className="font-mono text-xs text-cream-dim/80">
+                    <span className="font-mono text-xs text-cream-dim">
                       {l.level}
                     </span>
                   </div>

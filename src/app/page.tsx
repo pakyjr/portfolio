@@ -38,7 +38,7 @@ export default function Home() {
         </main>
         <Footer />
       </SmoothScroll>
-      <div className="sticky bottom-0 z-50">
+      <div id="music-player" className="sticky bottom-0 z-50">
         <MusicPlayer tracks={shuffle(tracks)} />
       </div>
     </>

@@ -58,8 +58,8 @@ export default function Photography() {
   }, [isPaused, scroll]);
 
   return (
-    <section id="photography" className="py-24 md:py-32">
-      <div className="flex items-center justify-between px-6 md:px-12 mb-12">
+    <section id="photography" className="py-6 md:py-9">
+      <div className="flex items-center justify-between px-6 md:px-12 mb-4">
         <motion.h2
           variants={fadeUp}
           initial="hidden"

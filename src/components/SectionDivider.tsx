@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function SectionDivider({ label }: { label?: string }) {
   return (
-    <div className="px-6 md:px-12 py-8">
+    <div className="px-6 md:px-12 py-2">
       <motion.div
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
@@ -19,7 +19,7 @@ export default function SectionDivider({ label }: { label?: string }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="font-serif text-4xl md:text-6xl text-cream/10 mt-6 tracking-tight select-none"
+          className="relative mt-3 pt-3 font-mono text-[clamp(1.75rem,4.5vw,3.75rem)] font-bold uppercase leading-none tracking-[-0.045em] text-cream select-none before:absolute before:top-0 before:left-0 before:h-0.5 before:w-10 before:bg-accent before:content-['']"
         >
           {label}
         </motion.p>

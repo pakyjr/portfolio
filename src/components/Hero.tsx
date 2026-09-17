@@ -105,7 +105,7 @@ export default function Hero() {
       {/* Bottom vignette to blend into rest of page */}
       <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-bg to-transparent pointer-events-none z-[2]" />
 
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 w-full">
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 w-full">
         {/* Name — left side */}
         <motion.div
           variants={staggerContainer}
@@ -113,7 +113,8 @@ export default function Hero() {
           animate="visible"
           className="md:col-span-7"
         >
-          <h1 className="font-serif leading-[0.95] tracking-tight">
+          <p className="mb-3 font-mono text-sm text-accent tracking-[0.18em] uppercase">Software engineer · Naples, Italy</p>
+          <h1 aria-label="Pasquale Junior Montò" className="font-serif leading-[0.95] tracking-tight">
             {nameLines.map((line, i) => (
               <span key={line.full} className="block overflow-hidden">
                 <motion.span
@@ -135,7 +136,7 @@ export default function Hero() {
 
           <motion.p
             variants={fadeUp}
-            className="mt-8 font-mono text-sm md:text-base text-cream-dim tracking-wide lowercase"
+            className="mt-4 font-mono text-sm md:text-base text-cream-dim tracking-wide lowercase"
           >
             if it moves me, it becomes my mission
           </motion.p>
@@ -148,18 +149,18 @@ export default function Hero() {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="md:col-span-4 md:col-start-9 flex flex-col justify-end"
         >
-          <div className="space-y-5">
-            <p className="font-serif text-lg md:text-xl leading-relaxed text-cream-dim/80">
-              I&apos;m a software engineer finishing my Computer Science degree in
-              Naples. I previously co-founded and led engineering at Clinequal,
-              building software to detect bias in clinical-trial data.
+          <div className="space-y-3">
+            <p className="font-mono text-lg lg:text-xl leading-relaxed text-cream">
+              I build software that turns complex problems into useful tools.
             </p>
-            <p className="font-serif text-lg md:text-xl leading-relaxed text-cream-dim/80">
-              Before that, I worked on backend systems used by more than 500,000
-              people each month. I&apos;ve also studied at the Apple Developer
-              Academy and in Kraków. Away from code: photography, tango, and
-              too many records.
+            <p className="font-mono text-sm lg:text-base leading-7 text-cream-dim">
+              Previously co-founder and engineering lead at Clinequal.
+              Before that, I worked on backend systems serving 500,000+ people each month.
             </p>
+            <div className="flex flex-wrap gap-3 pt-3">
+              <a href="#projects" className="inline-flex min-h-12 items-center gap-3 bg-accent px-5 py-3 font-mono text-sm text-bg transition-colors hover:bg-cream focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">View work <span aria-hidden="true">↓</span></a>
+              <a href="#contact" className="inline-flex min-h-12 items-center border border-cream-dim/40 px-5 py-3 font-mono text-sm text-cream transition-colors hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">Get in touch</a>
+            </div>
           </div>
         </motion.div>
       </div>

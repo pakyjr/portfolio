@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+/* Tailwind Preflight owns the reset so spacing utilities retain precedence. */
+
 @theme inline {
   --color-bg: #111111;
   --color-bg-raised: #1a1a1a;
@@ -7,19 +9,14 @@
   --color-cream-dim: #a39e93;
   --color-accent: #c8b89a;
 
-  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-serif: var(--font-jetbrains), "Courier New", monospace;
   --font-mono: var(--font-jetbrains), "Courier New", monospace;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 7rem;
+  scroll-padding-bottom: 8rem;
 }
 
 body {
