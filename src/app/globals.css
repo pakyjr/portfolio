@@ -5,9 +5,11 @@
 @theme inline {
   --color-bg: #111111;
   --color-bg-raised: #1a1a1a;
+  --color-bg-soft: #151515;
   --color-cream: #f5f0e8;
   --color-cream-dim: #a39e93;
   --color-accent: #c8b89a;
+  --color-copper: #b96f4a;
 
   --font-serif: var(--font-jetbrains), "Courier New", monospace;
   --font-mono: var(--font-jetbrains), "Courier New", monospace;
