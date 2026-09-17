@@ -10,7 +10,7 @@ export default function SectionDivider({ label, number }: { label?: string; numb
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-        className="h-px bg-gradient-to-r from-cream-dim/30 via-cream-dim/15 to-transparent origin-left"
+        className="section-rule h-px origin-left"
       />
       {label && (
         <motion.div
@@ -21,7 +21,7 @@ export default function SectionDivider({ label, number }: { label?: string; numb
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-2 flex items-start gap-3 border-b border-cream-dim/10 pb-3"
         >
-          {number && <span className="pt-1 font-mono text-xs font-normal tracking-[0.2em] text-copper">{number}</span>}
+          {number && <span className="pt-1 font-mono text-sm font-bold tracking-[0.2em] text-copper">{number}</span>}
           <p className="font-mono text-[clamp(1.75rem,4.5vw,3.75rem)] font-bold uppercase leading-none tracking-[-0.045em] text-cream select-none">{label}</p>
         </motion.div>
       )}

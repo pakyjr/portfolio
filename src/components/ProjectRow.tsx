@@ -93,7 +93,7 @@ export default function ProjectRow({ project }: { project: Project }) {
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className={`group relative border border-cream-dim/20 bg-bg-raised/20 p-4 md:p-6 ${project.name === "CLINEQUAL" ? "md:col-span-2" : ""}`}
+        className={`project-card group relative border border-cream-dim/20 bg-bg-raised/20 p-4 transition-colors duration-300 md:p-6 ${project.name === "CLINEQUAL" ? "md:col-span-2" : ""}`}
       >
         <div className="relative z-10 grid gap-4 lg:grid-cols-[minmax(12rem,0.34fr)_minmax(0,1fr)] lg:gap-8">
           <div>
@@ -186,7 +186,7 @@ export default function ProjectRow({ project }: { project: Project }) {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative border border-cream-dim/20 bg-bg-raised/20 p-4 md:p-5"
+      className="project-card group relative border border-cream-dim/20 bg-bg-raised/20 p-4 transition-colors duration-300 md:p-5"
     >
       <div className="relative z-10">
         <div>
