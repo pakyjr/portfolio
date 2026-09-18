@@ -17,8 +17,6 @@
 
 .text-copper { color: var(--color-copper); }
 .bg-copper { background-color: var(--color-copper); }
-.border-copper { border-color: var(--color-copper); }
-.project-card:hover { border-color: var(--color-copper); }
 .section-rule { background: linear-gradient(to right, color-mix(in srgb, var(--color-copper) 70%, transparent), color-mix(in srgb, var(--color-cream-dim) 20%, transparent), transparent); }
 
 html {

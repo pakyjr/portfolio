@@ -1,8 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import type { IconType } from "react-icons";
 import {
   SiC,
@@ -73,27 +71,13 @@ function TechTag({ name }: { name: string }) {
 }
 
 export default function ProjectRow({ project }: { project: Project }) {
-  const rowRef = useRef<HTMLDivElement>(null);
-  const [mouseY, setMouseY] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!rowRef.current) return;
-    const rect = rowRef.current.getBoundingClientRect();
-    setMouseY(e.clientY - rect.top);
-  };
-
   const link = project.link || project.github;
 
   if (project.featured) {
     return (
       <motion.article
-        ref={rowRef}
         variants={fadeUp}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        className={`project-card group relative border border-cream-dim/20 bg-bg-raised/20 p-4 transition-colors duration-300 md:p-6 ${project.name === "CLINEQUAL" ? "md:col-span-2" : ""}`}
+        className={`group relative border border-cream-dim/20 bg-bg-raised/20 p-4 md:p-6 ${project.name === "CLINEQUAL" ? "md:col-span-2" : ""}`}
       >
         <div className="relative z-10 grid gap-4 lg:grid-cols-[minmax(12rem,0.34fr)_minmax(0,1fr)] lg:gap-8">
           <div>
@@ -160,33 +144,14 @@ export default function ProjectRow({ project }: { project: Project }) {
           </div>
         </div>
 
-        <div
-          className="pointer-events-none absolute right-8 z-20 hidden h-[220px] w-[330px] overflow-hidden border border-cream-dim/20 bg-bg shadow-2xl transition-opacity duration-300 md:block"
-          style={{
-            top: mouseY - 110,
-            opacity: isHovered ? 1 : 0,
-          }}
-        >
-          <Image
-            src={project.image}
-            alt={`${project.name} project preview`}
-            fill
-            className="object-cover grayscale-[0.55]"
-            sizes="330px"
-          />
-        </div>
       </motion.article>
     );
   }
 
   return (
     <motion.div
-      ref={rowRef}
       variants={fadeUp}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="project-card group relative border border-cream-dim/20 bg-bg-raised/20 p-4 transition-colors duration-300 md:p-5"
+      className="group relative border border-cream-dim/20 bg-bg-raised/20 p-4 md:p-5"
     >
       <div className="relative z-10">
         <div>
@@ -226,30 +191,6 @@ export default function ProjectRow({ project }: { project: Project }) {
 
       </div>
 
-      {/* Hover image — desktop only */}
-      <div
-        className="hidden md:block pointer-events-none absolute right-12 z-20 w-[300px] h-[200px] overflow-hidden transition-opacity duration-300"
-        style={{
-          top: mouseY - 100,
-          opacity: isHovered ? 1 : 0,
-        }}
-      >
-        {project.image ? (
-          <Image
-            src={project.image}
-            alt={project.name}
-            fill
-            className="object-cover grayscale-[0.6]"
-            sizes="300px"
-          />
-        ) : (
-          <div className="w-full h-full bg-bg-raised border border-cream-dim/10 flex items-center justify-center p-6">
-            <pre className="font-mono text-[10px] text-accent/50 leading-tight whitespace-pre">
-              {`template <typename T>\nclass Container {\n  Node<T>* head;\npublic:\n  void insert(const T&);\n  Iterator<T> begin();\n  Iterator<T> end();\n};`}
-            </pre>
-          </div>
-        )}
-      </div>
     </motion.div>
   );
 }
