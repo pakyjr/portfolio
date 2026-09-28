@@ -19,7 +19,6 @@ const photos: { src: string; orientation: "portrait" | "landscape"; alt?: string
   { src: "post-025.jpg", orientation: "portrait" as const },
   { src: "R0004931.jpg", orientation: "landscape" as const },
   { src: "uoma-100.jpg", orientation: "portrait" as const },
-  { src: "00.jpg", orientation: "portrait" as const },
 ];
 
 export default function Photography() {
